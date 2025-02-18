@@ -1,0 +1,120 @@
+.post {
+    background-color: var(--secondary);
+    padding: 20px;
+    border-radius: 20px;
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+.poszt {
+    background-color: var(--secondary);
+    border-radius: 20px;
+    padding: 30px;
+    min-height: 400px; /* Megnövelt minimális magasság */
+    margin-bottom: 20px;
+}
+
+.post-author {
+    font-weight: bold;
+    font-size: 1.2rem;
+    background-color: inherit;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-left: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.post-title {
+
+    margin-bottom: 10px;
+    margin-left: 10px;
+    background-color: inherit;
+}
+#post-title{
+    font-size: 2rem;
+    font-weight: bolder;
+    padding: 10px;
+}
+
+.post-content {
+    background-color: inherit;
+    margin-bottom: 5px;
+    margin-left: 10px;
+    width: 100%;
+}
+
+textarea {
+    background-color: var(--secondary);
+    border: solid 1px var(--secondary-text);
+    font-size: 1.4rem; /* Tartalom betûmérete */
+    padding: 10px;
+    width: 100%;
+    outline: none;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    overflow-y: hidden; /* Rejtse el a görgetõsávot */
+    resize: none; /* Méretezés kikapcsolva */
+    min-height: 150px; /* Kezdeti magasság */
+    height: auto; /* Automatikusan nagyobbodik */
+}
+
+.input {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 500px;
+    border: 2px solid var(--secondary-text);
+    background-color: var(--secondary);
+    border-radius: 20px;
+    margin: 20px 0;
+}
+
+input {
+    background-color: var(--secondary);
+    border: solid 1px var(--secondary-text);
+    font-size: 1.5rem;
+    padding: 10px 0;
+    width: 460px;
+    outline: none;
+    border-radius: 20px;
+    margin-bottom: 20px;
+}
+
+.post-date {
+    background-color: inherit;
+    align-items: flex-end;
+    display: flex;
+    flex-direction: column;
+}
+
+.post-date span {
+    background-color: var(--main-text);
+    color: var(--secondary);
+    padding: 5px 10px;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+.post-line {
+    border: solid 1px var(--secondary-text);
+    width: 100%;
+    margin: 10px 0 10px 0;
+}
+
+#postgomb {
+    font-size: 1.5rem;
+    color: white;
+    background-color: #C33835;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+    padding: 15px;
+    width: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

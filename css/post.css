@@ -1,0 +1,83 @@
+.post, .comment {
+    background-color: var(--secondary);
+    padding: 20px;
+    border-radius: 20px;
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+.post-author, .comment-author {
+    font-weight: bold;
+    font-size: 1.2rem;
+    background-color: inherit;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-left: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.post-title {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    overflow: hidden;
+    font-weight: bold;
+    margin-left: 10px;
+    background-color: inherit;
+}
+
+.post-content, .comment-body{
+    overflow: hidden;
+    background-color: inherit;
+    margin-bottom: 5px;
+    margin-left: 10px;
+}
+
+.post-date, .comment-date{
+    background-color: inherit;
+    align-items: flex-end;
+    display: flex;
+    flex-direction: column;
+    span {
+        background-color: var(--main-text);
+        color: var(--secondary);
+        padding: 5px 10px;
+        border-radius: 10px;
+        font-weight: bold;
+    }
+}
+
+.comment {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.post-line {
+    border: solid 1px var(--secondary-text);
+    width: 100%;
+    margin: 10px 0 10px 0;
+}
+
+#friendRequest{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--main-text);
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    i{
+        font-size: 1rem;
+        text-align: center;
+        color: var(--main);
+        background-color: transparent;
+    }
+}

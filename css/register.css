@@ -1,0 +1,149 @@
+.logo-circle {
+    height: 400px;
+    width: 400px;
+    border-radius: 50%;
+    display: flex;
+    background-color: var(--secondary);
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
+    top: 50%;
+    left: 50%;
+    transform: translate(20%, 10%);
+}
+
+.logo-circle img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    opacity: 28%;
+}
+
+.circle {
+    height: 250px;
+    width: 250px;
+    border-radius: 50%;
+    display: flex;
+    background-color: var(--button-red);
+    position: absolute;
+    z-index: 2;
+    top: 40%;
+    left: 55%;
+    transform: translate(110%, -20%);
+}
+
+#reggomb {
+    font-size: 1.5rem;
+    color: white;
+    background-color: var(--button-red);
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+    padding: 15px;
+    width: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.reg_tarolo{
+    position: absolute;
+    background-color:var(--secondary);
+    height: 560px;
+    width: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-size: 3rem;
+    color: black;
+    font-weight: 500;
+    border-radius: 20px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-100%, -12%);
+    .toLogin {
+        background-color: inherit;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        color: var(--main-text);
+        cursor: pointer;
+        font-size: 1rem;
+        background-color: inherit;
+        opacity: 70%;
+        border: none;
+    }
+}
+
+.input {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 500px;
+    border: 2px solid var(--secondary-text);
+    background-color: var(--secondary);
+    border-radius: 20px;
+    margin: 20px 0;
+}
+
+input {
+    background-color: var(--secondary);
+    border: none;
+    font-size: 1.5rem;
+    padding: 10px 0;
+    width: 460px;
+    outline: none;
+}
+
+.row{
+    overflow: visible;
+    margin: 0;
+    .col-2 {
+        overflow: visible;
+        flex-direction: column-reverse;
+    }
+}
+
+@media screen and (min-width: 1260px) {
+    html,
+    body {
+        height: 100vh;
+        overflow: hidden;
+    }
+}
+
+@media screen and (max-width: 1260px) {
+    .row{
+        .col-2{
+            flex: 0 0 calc(100% / 1);
+            min-height: 75vh;
+        }
+    }
+    
+    .logo-circle{
+        top: unset;
+        height: 50vw;
+        width: 50vw;
+        transform: translate(-50%, 0);
+    }
+    .circle{
+        top: unset;
+        height: 25vw;
+        width: 25vw;
+        transform: translate(5%, -85%);
+    }
+    .reg_tarolo{
+        top: unset;
+        width: 95vw;
+        transform: translate(-50%, -10%);
+        .input{
+            width: 90vw;
+            input{
+                width: 80vw;
+            }
+        }
+    }
+}
+
