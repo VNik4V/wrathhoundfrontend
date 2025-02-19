@@ -120,7 +120,7 @@ async function checkUserLoggedIn() {
     console.log(data)
     if(data.loggedIn) {
         embark.textContent = 'Profil';
-        embark.addEventListener('click', toProfile);
+        embark.addEventListener('click', () => getUserProfile(embark));
         getUser();
         getPosts();
     }
@@ -136,11 +136,6 @@ async function checkUserLoggedIn() {
 }
 
 
-
-function toProfile() {
-    window.location.href = '../profile.html';
-}
-
 function toCsatlakozz() {
     window.location.href = '../csatlakozz.html';
 }
@@ -154,6 +149,8 @@ async function getUser() {
     console.log(data);
     if(data.username){
         draw(data);
+        const embark = document.getElementById('embark');
+        embark.setAttribute('userid', data.uid);
     }
 }
 

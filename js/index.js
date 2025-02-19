@@ -18,7 +18,7 @@ async function checkUserLoggedIn() {
     console.log(data)
     if(data.loggedIn) {
         embark.textContent = 'Profil';
-        embark.addEventListener('click', toProfile);
+        embark.addEventListener('click', () => getUserProfile(embark));
         getUser();
     }
     else{
@@ -45,6 +45,8 @@ async function getUser() {
     const data = await res.json();
     console.log(data);
     if(data.username){
+        const embark = document.getElementById('embark');
+        embark.setAttribute('userid', data.uid);
         draw(data);
     }
 }
