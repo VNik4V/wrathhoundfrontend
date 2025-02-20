@@ -117,30 +117,89 @@ function getUserProfile(user) {
 }
 
 /*
-<h2>Barátok</h2>
-    <div class="row">
-        <div class="col-1"><span>aaa</span></div>
-        <div class="col-1"><span>aaa</span></div>
-        <div class="col-1"><span>aaa</span></div>
-        <div class="col-1"><span>aaa</span></div>
-        <div class="col-1"><span>aaa</span></div>
-        <div class="col-1"><span>aaa</span></div>
-        <div class="col-1"><span>aaa</span></div>
-        <div class="col-1"><span>aaa</span></div>
-        <div class="col-1"><span>aaa</span></div>
-        <div class="col-1"><span>aaa</span></div>
-        <div class="col-1"><span>aaa</span></div>
-        <div class="col-1"><span>aaa</span></div>
-        <div class="col-1"><span>aaa</span></div>
-        <div class="col-1"><span>aaa</span></div>
-        <div class="col-1"><span>aaa</span></div>
+<h2>Teljesítmények</h2><span class="badge">66,66%</span>                         
+<div class="achievement-container row">
+    <div class="achievement col-6"><i class="fa-brands fa-wolf-pack-battalion"></i></div>
+    <div class="achievement col-6"><i class="fa-brands fa-wolf-pack-battalion"></i></div>
+    <div class="achievement inactive col-6"><i class="fa-brands fa-wolf-pack-battalion"></i>
     </div>
+    <div class="achievement col-6"><i class="fa-brands fa-wolf-pack-battalion"></i></div>
+    <div class="achievement inactive col-6"><i class="fa-brands fa-wolf-pack-battalion"></i>
+    </div>
+    <div class="achievement col-6"><i class="fa-brands fa-wolf-pack-battalion"></i></div>
+</div>
 */
 
 function drawUserProfile(data) {
     drawFelhasznalo(data);
-    getFriends(data);
+    getFriends();
+    getFriendRequests();
+    drawButtons(data);
     
+}
+
+function drawButtons(data) {
+    const buttons = document.getElementsByClassName('buttons')[0];
+    const row = document.createElement('div');
+    row.classList.add('row');
+    const col = document.createElement('div');
+    col.classList.add('col-1');
+    const changeUser = document.createElement('button');
+    changeUser.type = 'button';
+    changeUser.textContent = 'Név módosítása';
+    changeUser.classList.add('Changegbtn');
+    changeUser.addEventListener('click', () => ChangeUsername(data));
+    col.appendChild(changeUser);
+    row.appendChild(col);
+    const col1 = document.createElement('div');
+    col1.classList.add('col-1');
+    const changePsw = document.createElement('button');
+    changePsw.type = 'button';
+    changePsw.textContent = 'Jelszó módosítása';
+    changePsw.classList.add('Changegbtn');
+    changePsw.addEventListener('click', () => ChangePassword(data));
+    col1.appendChild(changePsw);
+    row.appendChild(col1);
+    buttons.appendChild(row);
+
+
+}
+
+async function getFriendRequests(){
+    const res = await fetch('https://nodejs310.dszcbaross.edu.hu/api/friends/pending', {
+        method: 'GET',
+        credentials: 'include',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    });
+    const data = await res.json();
+    console.log(data);
+    drawPending(data);
+}
+
+function drawPending(data) {
+    const requests = document.getElementsByClassName('requests')[0];
+    const h2 = document.createElement('h2');
+    h2.textContent = "Kérések";
+    requests.appendChild(h2);
+
+    for (let i = 0; i < data.length; i++) {
+        const pending = data[i];
+        const row = document.createElement('div');
+        row.classList.add('row');
+        const col = document.createElement('div');
+        col.classList.add('col-1');
+        const span = document.createElement('span');
+        span.textContent = pending.sender_username;
+        span.setAttribute('userid', pending.sender_id)
+        col.appendChild(span);
+        row.appendChild(col);
+        requests.appendChild(row);
+        row.addEventListener('click', () => getUserProfile(row));
+        console.log(row);
+    }
+
 }
 
 function drawFelhasznalo(data) {
@@ -217,7 +276,7 @@ function drawFelhasznalo(data) {
     userInformation.appendChild(row);
 }
 
-async function getFriends(user) {
+async function getFriends() {
     const res = await fetch('https://nodejs310.dszcbaross.edu.hu/api/friends/all', {
         method: 'GET',
         credentials: 'include',
@@ -233,6 +292,9 @@ async function getFriends(user) {
 function drawFriends(friends) {
     const userFriends = document.getElementsByClassName('friends')[0];
     userFriends.innerHTML = "";
+    const h2 = document.createElement('h2');
+    h2.textContent = 'Barátok';
+    userFriends.appendChild(h2);
     
     for (let i = 0; i < friends.length; i++) {
         const friend = friends[i];
@@ -242,6 +304,7 @@ function drawFriends(friends) {
         col.classList.add('col-1');
         const span = document.createElement('span');
         span.textContent = friend.username;
+        span.setAttribute('userid', friend.uid)
         col.appendChild(span);
         row.appendChild(col);
         userFriends.appendChild(row);
