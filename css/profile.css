@@ -207,6 +207,6 @@
     text-align: center;
     font-size: small;
     border-radius: 10px;
-    margin-right: -10px;
+    position: absolute;
 
   }
