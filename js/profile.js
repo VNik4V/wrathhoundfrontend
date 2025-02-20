@@ -3,7 +3,7 @@ const embark = document.getElementById('embark');
 const game = document.getElementById('game');
 const home = document.getElementById('home');
 
-let user;
+let gotuser;
 
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
@@ -38,11 +38,119 @@ async function checkUserLoggedIn() {
         embark.addEventListener('click', toCsatlakozz);
         const user = document.getElementsByClassName('user')[0];
         user.textContent = "";
+        drawUserInfo();
     }
 }
 
-function toProfile() {
-    window.location.href = '../profile.html';
+
+function drawUserInfo() {
+    getUserInfo();
+    getUserFriends();
+    const requests = document.getElementsByClassName('requests')[0];
+    requests.style.display = 'none';
+}
+
+async function getUserFriends() {
+    const res = await fetch(`https://nodejs310.dszcbaross.edu.hu/api/friends/all/${uid}`, {
+        method: 'GET',
+        credentials: 'include'
+    });
+    const data = await res.json();
+    console.log(data);
+    if(data.message !== 'A barátlista üres'){
+        if(embark.textContent === 'Profil'){
+            const isFriend = data.some(e => e.uid === gotuser.uid);       
+            isFriend ? deleteFriendButton() : checkPending();
+        }
+    }
+    else{
+        checkPending();
+    }    
+    drawFriends(data);
+}
+
+async function checkPending(){
+    const res = await fetch('https://nodejs310.dszcbaross.edu.hu/api/friends/pending', {
+        method: 'GET',
+        credentials: 'include',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    });
+    const data = await res.json();
+    console.log(data)
+    const isFriend = data.some(sender => sender.sender_id == uid);
+    console.log(isFriend);
+    isFriend ? answerButtons() : addFriendButton();
+}
+
+function addFriendButton(){
+    const buttons = document.getElementsByClassName('buttons')[0];
+    const row = document.createElement('div');
+    row.classList.add('row');
+    const col = document.createElement('div');
+    col.classList.add('col-1');
+    const addFriend = document.createElement('button');
+    addFriend.type = 'button';
+    addFriend.textContent = 'Barátkérelem küldése';
+    addFriend.classList.add('Changegbtn');
+    addFriend.addEventListener('click', () => addFriend());
+    col.appendChild(addFriend);
+    row.appendChild(col);
+    buttons.appendChild(row);
+}
+
+
+
+function answerButtons(){
+    const buttons = document.getElementsByClassName('buttons')[0];
+    const row = document.createElement('div');
+    row.classList.add('row');
+    const col = document.createElement('div');
+    col.classList.add('col-1');
+    const acceptFriend = document.createElement('button');
+    acceptFriend.type = 'button';
+    acceptFriend.textContent = 'Barátkérelem elfogadása';
+    acceptFriend.classList.add('Changegbtn');
+    acceptFriend.addEventListener('click', () => acceptFriend());
+    col.appendChild(acceptFriend);
+    row.appendChild(col);
+    const col2 = document.createElement('div');
+    col2.classList.add('col-1');
+    const deleteFriend = document.createElement('button');
+    deleteFriend.type = 'button';
+    deleteFriend.textContent = 'Kérelem elutasítása';
+    deleteFriend.classList.add('Changegbtn');
+    deleteFriend.addEventListener('click', () => deleteFriend());
+    col2.appendChild(deleteFriend);
+    row.appendChild(col2);
+    buttons.appendChild(row);
+}
+
+function deleteFriendButton(){
+    const buttons = document.getElementsByClassName('buttons')[0];
+    const row = document.createElement('div');
+    row.classList.add('row');
+    const col = document.createElement('div');
+    col.classList.add('col-1');
+    const deleteFriend = document.createElement('button');
+    deleteFriend.type = 'button';
+    deleteFriend.textContent = 'Barát törlése';
+    deleteFriend.classList.add('Changegbtn');
+    deleteFriend.addEventListener('click', () => deleteFriend());
+    col.appendChild(deleteFriend);
+    row.appendChild(col);
+    buttons.appendChild(row);
+}
+
+async function getUserInfo() {
+    const res = await fetch(`https://nodejs310.dszcbaross.edu.hu/api/user/userprofile/${uid}`,{
+        method: 'GET',
+        credentials: 'include'
+    });
+    const data = await res.json();
+    console.log(data);
+    drawFelhasznalo(data);
 }
 
 function toCsatlakozz() {
@@ -56,6 +164,7 @@ async function getUser() {
     });
     const data = await res.json();
     console.log(data);
+    
     if (data.username) {
         draw(data);
         console.log(data.uid)
@@ -64,9 +173,12 @@ async function getUser() {
         console.log(uid);
         if (uid != data.uid) {
             drawProfile(uid);
+            gotuser = data;
         }
         else {
+            
             drawUserProfile(data);
+            
         }
     }
 }
@@ -160,6 +272,17 @@ function drawButtons(data) {
     changePsw.addEventListener('click', () => ChangePassword(data));
     col1.appendChild(changePsw);
     row.appendChild(col1);
+    if(data.role === 'admin'){
+        const col2 = document.createElement('div');
+        col2.classList.add('col-1');
+        const uploadGame = document.createElement('button');
+        uploadGame.type = 'button';
+        uploadGame.textContent = 'Játék feltöltése';
+        uploadGame.classList.add('Changegbtn');
+        uploadGame.addEventListener('click', () => Upload());
+        col2.appendChild(uploadGame);
+        row.appendChild(col2);
+    }
     buttons.appendChild(row);
 
 
@@ -193,10 +316,10 @@ function drawPending(data) {
         const span = document.createElement('span');
         span.textContent = pending.sender_username;
         span.setAttribute('userid', pending.sender_id)
+        span.addEventListener('click', () => getUserProfile(span));
         col.appendChild(span);
         row.appendChild(col);
         requests.appendChild(row);
-        row.addEventListener('click', () => getUserProfile(row));
         console.log(row);
     }
 
@@ -305,15 +428,18 @@ function drawFriends(friends) {
         const span = document.createElement('span');
         span.textContent = friend.username;
         span.setAttribute('userid', friend.uid)
+        span.addEventListener('click', () => getUserProfile(span));
         col.appendChild(span);
         row.appendChild(col);
         userFriends.appendChild(row);
-        row.addEventListener('click', () => getUserProfile(row));
         console.log(row);
     }
 }
 
 
 async function drawProfile(uid) { 
-    console.log('Szar van a palacsintában');
+    getUserInfo();
+    getUserFriends();
+    const requests = document.getElementsByClassName('requests')[0];
+    requests.style.display = 'none';
 }
