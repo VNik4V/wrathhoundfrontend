@@ -200,4 +200,13 @@
     opacity: 30%;
 }
 
+.badge {
+    background-color: var(--button-red);
+    color: white;
+    padding: 4px 8px;
+    text-align: center;
+    font-size: small;
+    border-radius: 10px;
+    margin-right: -10px;
 
+  }
