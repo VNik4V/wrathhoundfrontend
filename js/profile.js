@@ -99,7 +99,7 @@ function addFriendButton() {
     addFriend.type = 'button';
     addFriend.textContent = 'Barátkérelem küldése';
     addFriend.classList.add('Changegbtn');
-    addFriend.addEventListener('click', () => addFriend());
+    addFriend.addEventListener('click', addFriends);
     col.appendChild(addFriend);
     row.appendChild(col);
     buttons.appendChild(row);
@@ -115,7 +115,7 @@ function answerButtons() {
     acceptFriend.type = 'button';
     acceptFriend.textContent = 'Barátkérelem elfogadása';
     acceptFriend.classList.add('Changegbtn');
-    acceptFriend.addEventListener('click', () => acceptFriend());
+    acceptFriend.addEventListener('click', addFriends);
     col.appendChild(acceptFriend);
     row.appendChild(col);
     const col2 = document.createElement('div');
@@ -124,7 +124,7 @@ function answerButtons() {
     deleteFriend.type = 'button';
     deleteFriend.textContent = 'Kérelem elutasítása';
     deleteFriend.classList.add('Changegbtn');
-    deleteFriend.addEventListener('click', () => deleteFriend());
+    deleteFriend.addEventListener('click', deleteFriends);
     col2.appendChild(deleteFriend);
     row.appendChild(col2);
     buttons.appendChild(row);
@@ -140,7 +140,7 @@ function deleteFriendButton() {
     deleteFriend.type = 'button';
     deleteFriend.textContent = 'Barát törlése';
     deleteFriend.classList.add('Changegbtn');
-    deleteFriend.addEventListener('click', () => deleteFriend());
+    deleteFriend.addEventListener('click', deleteFriends);
     col.appendChild(deleteFriend);
     row.appendChild(col);
     buttons.appendChild(row);
@@ -511,3 +511,30 @@ function ChangePassword() {
     openModal("Jelszó módosítása", "psw");
 }
 
+async function addFriends() {
+    const res = await fetch(`https://nodejs310.dszcbaross.edu.hu/api/friends/addfriend/${uid}`,{
+        method: 'POST',
+        credentials: 'include',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    });
+    const data = await res.json();
+    if(res.ok){
+        alert(data.message);
+        window.location.reload();
+    }
+}
+async function deleteFriends(){
+    const res = await fetch(`https://nodejs310.dszcbaross.edu.hu/api/friends/removefriend/${uid}`,{
+        method: 'DELETE',
+        credentials: 'include',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    });
+    if(res.ok){
+        alert('Sikeres törlés!');
+        window.location.reload();
+    }
+}

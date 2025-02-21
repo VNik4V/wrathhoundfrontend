@@ -1,1 +1,1 @@
-https://fantastic-salamander-a725c3.netlify.app
+https://wrathhound.netlify.app
