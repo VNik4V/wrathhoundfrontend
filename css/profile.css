@@ -200,4 +200,68 @@
     opacity: 30%;
 }
 
+.modal {
+    display: none; /* Alapból rejtve */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
+.modal-content {  
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    min-width: 300px;
+}
+
+.close {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 2rem;
+    color: white;
+    width: 55px;
+    background-color: #C33835;
+    border: none;
+    border-radius: 50%;
+    padding: 15px;
+
+
+}
+#saveChanges{
+    margin-top: 2rem;
+    font-size: 1.5rem;
+    color: white;
+    background-color: #C33835;
+    border: none;
+    cursor: pointer;
+    border-radius: 20px;
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+#newValue{
+    font-size: large;
+    display: flex;
+    padding: 15px;
+    justify-content: center;
+    align-items: center;
+    height: 3rem;
+    width: 500px;
+    border: 2px solid var(--main-text);
+    background-color: var(--secondary);
+    border-radius: 20px;
+    margin: 20px 0;
+}
