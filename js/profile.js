@@ -42,7 +42,6 @@ async function checkUserLoggedIn() {
     }
 }
 
-
 function drawUserInfo() {
     getUserInfo();
     getUserFriends();
@@ -57,19 +56,19 @@ async function getUserFriends() {
     });
     const data = await res.json();
     console.log(data);
-    if(data.message !== 'A barátlista üres'){
-        if(embark.textContent === 'Profil'){
-            const isFriend = data.some(e => e.uid === gotuser.uid);       
+    if (data.message !== 'A barátlista üres') {
+        if (embark.textContent === 'Profil') {
+            const isFriend = data.some(e => e.uid === gotuser.uid);
             isFriend ? deleteFriendButton() : checkPending();
         }
     }
-    else{
+    else {
         checkPending();
-    }    
+    }
     drawFriends(data);
 }
 
-async function checkPending(){
+async function checkPending() {
     const res = await fetch('https://nodejs310.dszcbaross.edu.hu/api/friends/pending', {
         method: 'GET',
         credentials: 'include',
@@ -79,12 +78,18 @@ async function checkPending(){
     });
     const data = await res.json();
     console.log(data)
-    const isFriend = data.some(sender => sender.sender_id == uid);
-    console.log(isFriend);
-    isFriend ? answerButtons() : addFriendButton();
+    if(data.message !== 'Nincsenek kérelmeid'){
+        
+        const isFriend = data.some(sender => sender.sender_id == uid) || false;
+        console.log(isFriend);
+        isFriend ? answerButtons() : addFriendButton();
+    }
+    else{
+        addFriendButton();
+    }
 }
 
-function addFriendButton(){
+function addFriendButton() {
     const buttons = document.getElementsByClassName('buttons')[0];
     const row = document.createElement('div');
     row.classList.add('row');
@@ -100,9 +105,7 @@ function addFriendButton(){
     buttons.appendChild(row);
 }
 
-
-
-function answerButtons(){
+function answerButtons() {
     const buttons = document.getElementsByClassName('buttons')[0];
     const row = document.createElement('div');
     row.classList.add('row');
@@ -127,7 +130,7 @@ function answerButtons(){
     buttons.appendChild(row);
 }
 
-function deleteFriendButton(){
+function deleteFriendButton() {
     const buttons = document.getElementsByClassName('buttons')[0];
     const row = document.createElement('div');
     row.classList.add('row');
@@ -144,7 +147,7 @@ function deleteFriendButton(){
 }
 
 async function getUserInfo() {
-    const res = await fetch(`https://nodejs310.dszcbaross.edu.hu/api/user/userprofile/${uid}`,{
+    const res = await fetch(`https://nodejs310.dszcbaross.edu.hu/api/user/userprofile/${uid}`, {
         method: 'GET',
         credentials: 'include'
     });
@@ -164,7 +167,7 @@ async function getUser() {
     });
     const data = await res.json();
     console.log(data);
-    
+
     if (data.username) {
         draw(data);
         console.log(data.uid)
@@ -176,9 +179,7 @@ async function getUser() {
             gotuser = data;
         }
         else {
-            
             drawUserProfile(data);
-            
         }
     }
 }
@@ -228,84 +229,64 @@ function getUserProfile(user) {
     window.location.href = `../profile.html?userid=${userId}`;
 }
 
+function openModal(title, type) {
+        const modal = document.getElementById('modal');
+        const saveBtn = document.getElementById('saveChanges');
+        const closeModal = document.querySelector('.close');
+        const inputField = document.getElementById('newValue');
 
-document.addEventListener('DOMContentLoaded', () => {
-    const modal = document.getElementById('modal');
-    const closeModal = document.querySelector('.close');
-    const saveBtn = document.getElementById('saveChanges');
-    const inputField = document.getElementById('newValue');
+        let editType = '';
+        document.querySelector('.modal-content h2').textContent = title;
+        inputField.value = '';  // Alapból töröljük a mezőt
+        modal.style.display = 'flex';
+        editType = type; 
 
-    // Gombok lekérése
-    const nameChangeBtn = document.getElementById('userMgomb');
-    const passwordChangeBtn = document.getElementById('pswMgomb');
-
-    let editType = ''; // Eltároljuk, hogy milyen adatot akarunk módosítani
-
-    // Modal megjelenítése kattintásra
-    nameChangeBtn.addEventListener('click', () => {
-        openModal("Felhasználónév módosítása", "username");
-    });
-
-    passwordChangeBtn.addEventListener('click', () => {
-        openModal("Jelszó módosítása", "password");
-    });
-
-    // Modal bezárása
-    closeModal.addEventListener('click', () => {
+     closeModal.addEventListener('click', () => {
         modal.style.display = 'none';
     });
-
-    // Ha a felhasználó a modalon kívülre kattint, zárjuk be
     window.addEventListener('click', (event) => {
         if (event.target === modal) {
             modal.style.display = 'none';
         }
     });
 
-    function openModal(title, type) {
-        document.querySelector('.modal-content h2').textContent = title;
-        inputField.value = '';  // Alapból töröljük a mezőt
-        modal.style.display = 'flex';
-        editType = type; // Beállítjuk, hogy mit fogunk módosítani
-    }
-
-    // Mentés gomb eseménykezelője
     saveBtn.addEventListener('click', async () => {
         const newValue = inputField.value.trim();
-        
+
+        console.log(editType, newValue);
         if (!newValue) {
             alert("Nem adtál meg új értéket!");
             return;
         }
-
-        try {
-            const response = await fetch('https://nodejs310.dszcbaross.edu.hu/api/user/editprofile', {
-                method: 'POST',
+        try{
+            const res = await fetch('https://nodejs310.dszcbaross.edu.hu/api/user/editprofile', {
+                method: 'PUT',
                 credentials: 'include',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ [editType]: newValue }) // Dinamikusan küldjük el az adatot
-            });
-
-            const result = await response.json();
-            console.log("Válasz:", result);
-
-            if (response.ok) {
-                alert("Sikeres módosítás!");
+                body: JSON.stringify({
+                    [editType]: newValue
+                })
+            })
+            const data = await res.json();
+            console.log(data);
+            if(res.ok){
+                alert("Sikeres mentés!");
                 modal.style.display = 'none';
-                location.reload(); // Frissítjük az oldalt
-            } else {
-                alert("Hiba történt: " + result.message);
+                getUserProfile(document.getElementById('profile'));
             }
 
-        } catch (error) {
-            console.error("Hiba a kérés során:", error);
-            alert("Nem sikerült a módosítás!");
         }
-    });
-});
+        catch(error){
+            console.error(error);
+            alert("Hiba a mentés közben!");
+        }
 
+
+    });
+
+    }
 /*
 <h2>Teljesítmények</h2><span class="badge">66,66%</span>                         
 <div class="achievement-container row">
@@ -325,7 +306,7 @@ function drawUserProfile(data) {
     getFriends();
     getFriendRequests();
     drawButtons(data);
-    
+
 }
 
 function drawButtons(data) {
@@ -338,7 +319,7 @@ function drawButtons(data) {
     changeUser.type = 'button';
     changeUser.textContent = 'Név módosítása';
     changeUser.classList.add('Changegbtn');
-    changeUser.addEventListener('click', () => ChangeUsername(data));
+    changeUser.addEventListener('click', () => ChangeUsername());
     col.appendChild(changeUser);
     row.appendChild(col);
     const col1 = document.createElement('div');
@@ -347,10 +328,10 @@ function drawButtons(data) {
     changePsw.type = 'button';
     changePsw.textContent = 'Jelszó módosítása';
     changePsw.classList.add('Changegbtn');
-    changePsw.addEventListener('click', () => ChangePassword(data));
+    changePsw.addEventListener('click', () => ChangePassword());
     col1.appendChild(changePsw);
     row.appendChild(col1);
-    if(data.role === 'admin'){
+    if (data.role === 'admin') {
         const col2 = document.createElement('div');
         col2.classList.add('col-1');
         const uploadGame = document.createElement('button');
@@ -366,7 +347,7 @@ function drawButtons(data) {
 
 }
 
-async function getFriendRequests(){
+async function getFriendRequests() {
     const res = await fetch('https://nodejs310.dszcbaross.edu.hu/api/friends/pending', {
         method: 'GET',
         credentials: 'include',
@@ -496,7 +477,7 @@ function drawFriends(friends) {
     const h2 = document.createElement('h2');
     h2.textContent = 'Barátok';
     userFriends.appendChild(h2);
-    
+
     for (let i = 0; i < friends.length; i++) {
         const friend = friends[i];
         const row = document.createElement('div');
@@ -515,10 +496,18 @@ function drawFriends(friends) {
 }
 
 
-async function drawProfile(uid) { 
+async function drawProfile(uid) {
     getUserInfo();
     getUserFriends();
     const requests = document.getElementsByClassName('requests')[0];
     requests.style.display = 'none';
+}
+
+function ChangeUsername() {
+    openModal("Felhasználónév módosítása", "username");
+}
+
+function ChangePassword() {
+    openModal("Jelszó módosítása", "psw");
 }
 
