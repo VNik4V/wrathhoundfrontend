@@ -163,7 +163,7 @@ function draw(data) {
     profile.setAttribute('userid', data.uid);
     
     const img = document.createElement('img');
-    img.src = './img/permanent-pics/logo.jpg';
+    img.src = './img/permanent-pics/logo.png';
     img.alt = 'profile';
     profile.appendChild(img);
     
