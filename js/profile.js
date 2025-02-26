@@ -338,13 +338,17 @@ function drawButtons(data) {
         uploadGame.type = 'button';
         uploadGame.textContent = 'Játék feltöltése';
         uploadGame.classList.add('Changegbtn');
-        uploadGame.addEventListener('click', () => Upload());
+        uploadGame.addEventListener('click', Upload);
         col2.appendChild(uploadGame);
         row.appendChild(col2);
     }
     buttons.appendChild(row);
 
 
+}
+
+async function Upload() {
+    alert("játékfeltöltés")
 }
 
 async function getFriendRequests() {
