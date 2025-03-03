@@ -56,10 +56,8 @@ textarea {
     outline: none;
     border-radius: 20px;
     margin-bottom: 20px;
-    overflow-y: hidden; /* Rejtse el a görgetõsávot */
-    resize: none; /* Méretezés kikapcsolva */
-    min-height: 150px; /* Kezdeti magasság */
-    height: auto; /* Automatikusan nagyobbodik */
+    overflow-y: hidden;
+    min-height: 150px;
 }
 
 .input {
