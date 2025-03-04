@@ -70,6 +70,7 @@ function renderPost(forum) {
         const plus = document.createElement('div');
         plus.classList.add('plus');
         plus.textContent = '+';
+        plus.addEventListener('click', () => openModal('Új komment'))
         postDate.appendChild(plus);
     }
     post.appendChild(postDate);
@@ -201,4 +202,63 @@ function getUserProfile(user) {
 
 function isUserLoggedIn() {
     return embark.textContent === 'Profil';
+}
+
+
+function openModal(title) {
+    const modal = document.getElementById('modal');
+    const saveBtn = document.getElementById('saveChanges');
+    const closeModal = document.querySelector('.close');
+    const inputField = document.getElementById('newValue');
+
+    let editType = '';
+    document.querySelector('.modal-content h2').textContent = title;
+    inputField.value = '';  // Alapból töröljük a mezőt
+    modal.style.display = 'flex'; 
+
+ closeModal.addEventListener('click', () => {
+    modal.style.display = 'none';
+});
+window.addEventListener('click', (event) => {
+    if (event.target === modal) {
+        modal.style.display = 'none';
+    }
+});
+
+saveBtn.addEventListener('click', async () => {
+    const newValue = inputField.value;
+
+    console.log(newValue);
+    if (!newValue) {
+        alert("Nem adtál meg kommnet szöveget!");
+        return;
+    }
+    try{
+        const res = await fetch(`https://nodejs310.dszcbaross.edu.hu/api/forum/newcomment/${postId}`, {
+            method: 'POST',
+            credentials: 'include',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                post: newValue
+            })
+        })
+        const data = await res.json();
+        console.log(data);
+        if(res.ok){
+            alert("Sikeres mentés!");
+            modal.style.display = 'none';
+            window.location.reload();
+        }
+
+    }
+    catch(error){
+        console.error(error);
+        alert("Hiba a mentés közben!");
+    }
+
+
+});
+
 }
