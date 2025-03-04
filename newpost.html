@@ -32,7 +32,7 @@
             <div class="container">
                 <div class="navbar-content">
                     <div class="main-menu">
-                        <button id="home">Fõoldal</button>
+                        <button id="home">Főoldal</button>
                         <button id="forum">Fórum</button>
                         <button id="embark"></button>
                         <button id="game">Játék</button>
@@ -53,25 +53,21 @@
 
             </div>
         </div>
-
+    
         <div class="title">Wrath Hound</div>
 
         <main class="container">
             <div class="forum">
-                <div class="poszt">
+                <div class="post">
                     <div class="post-title">
-                        <input id="post-title" placeholder="Cím">
+                        <input id="title" placeholder="Cím" maxlength="50">
                     </div>
                     <div class="post-content">
-                        <textarea id="post-content" placeholder="Tartalom"></textarea>
-                    </div>    
-                    <button type="button" class="login" id="postgomb">Küldés</button>                      
+                        <textarea id="content" placeholder="Tartalom"></textarea>
+                    </div>
+                    <button type="button" class="login" id="BTNpost">Küldés</button>
                 </div>
-                <div class="post-date">
-                    <span>2025. február 14.</span>
-                </div>
-                <div class="post-line"></div>
-                
+
 
 
 
@@ -81,7 +77,9 @@
 
 
     </div>
-    
-</body>
 
+
+    <script src="./js/newpost.js"></script>
+
+</body>
 </html>
