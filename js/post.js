@@ -247,7 +247,7 @@ saveBtn.addEventListener('click', async () => {
         const data = await res.json();
         console.log(data);
         if(res.ok){
-            alert("Sikeres mentés!");
+            alert(data.message);
             modal.style.display = 'none';
             window.location.reload();
         }
