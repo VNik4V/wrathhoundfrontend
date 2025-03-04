@@ -85,18 +85,28 @@
                     <div class="col-1">
                         <div class="achivementek">
                             <div>
-                                <h2>Teljesítmények</h2><span class="badge">66,66%</span>
+                                <h2>Teljesítmények</h2>
+                                <span class="badge">66,66%</span>
                             </div>
-
                             <div class="achievement-container row">
-                                <div class="achievement col-6"><i class="fa-brands fa-wolf-pack-battalion"></i></div>
-                                <div class="achievement col-6"><i class="fa-brands fa-wolf-pack-battalion"></i></div>
-                                <div class="achievement inactive col-6"><i class="fa-brands fa-wolf-pack-battalion"></i>
+                                <div class="achievement active col-6">
+                                    <img src="img/KIZ_aktiv_kor.png" alt="KIZ">
                                 </div>
-                                <div class="achievement col-6"><i class="fa-brands fa-wolf-pack-battalion"></i></div>
-                                <div class="achievement inactive col-6"><i class="fa-brands fa-wolf-pack-battalion"></i>
+                                <div class="achievement active col-6">
+                                    <img src="img/elsohalal_aktiv_kor.png" alt="Első Halál">
                                 </div>
-                                <div class="achievement col-6"><i class="fa-brands fa-wolf-pack-battalion"></i></div>
+                                <div class="achievement inactive col-6">
+                                    <img src="img/ellenfel_aktiv_kor.png" alt="Első Ellenfél">
+                                </div>
+                                <div class="achievement active col-6">
+                                    <img src="img/elsotalalkozas_aktiv_kor.png" alt="Első Találkozás">
+                                </div>
+                                <div class="achievement inactive col-6">
+                                    <img src="img/gyozdle_aktiv_kor.png" alt="Bukott Bukott Angyal">
+                                </div>
+                                <div class="achievement active col-6">
+                                    <img src="img/lepesek_aktiv_kor.png" alt="Első Lépések">
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -115,6 +125,15 @@
                     </div>
                 </div>
 
+<!-- Modal -->
+<div id="achievementModal" class="modal" style="display: none;">
+    <div class="modal-content">
+        <span class="close-achievement">&times;</span>
+        <h2 id="achievementTitle">Achievement Title</h2>
+        <img id="achievementImage" class="achievement-image" alt="Achievement Image">
+        <p id="achievementDescription">Achievement Description</p>
+    </div>
+</div>
 
 
 
@@ -127,6 +146,7 @@
 
     </div>
     <script src="./js/profile.js"></script>
+    <script src="./js/theme.js"></script>
 </body>
 
 </html>

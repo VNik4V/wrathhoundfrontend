@@ -203,6 +203,7 @@
 
 .inactive {
     opacity: 30%;
+    filter: grayscale(100%);
 }
 
 
@@ -227,7 +228,7 @@
     min-width: 300px;
 }
 
-.close {
+.close, .close-achievement {
     position: absolute;
     right: 15px;
     top: 10px;
@@ -283,3 +284,20 @@
 
   }
 
+  .achievement-modal {
+    background-color: var(--secondary);
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    min-width: 350px;
+    max-width: 500px;
+}
+#achievementTitle{
+    margin-bottom: 40px;
+    
+}
+#achievementDescription{
+    margin-top: 20px;
+    font-size: larger;
+    
+}
