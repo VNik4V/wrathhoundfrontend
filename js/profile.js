@@ -542,3 +542,57 @@ async function deleteFriends(){
         window.location.reload();
     }
 }
+document.addEventListener("DOMContentLoaded", function () {
+    const achievementModal = document.getElementById("achievementModal");
+    const closeAchievement = document.querySelector(".close-achievement");
+    const achievementTitle = document.getElementById("achievementTitle");
+    const achievementImage = document.getElementById("achievementImage");
+    const achievementDescription = document.getElementById("achievementDescription");
+
+    const achievements = document.querySelectorAll(".achievement img");
+
+    const descriptions = {
+        "KIZ": "Találkozz István mesterrel",
+        "Első Halál": "Halj meg először a játékban!",
+        "Első Ellenfél": "Győzd le első ellenfeled!",
+        "Első Találkozás": "Juss el Ismériáshoz!",
+        "Bukott Bukott Angyal": "Győzd le Ismériást a tutoriálban!",
+        "Első Lépések": "Teljesítsd a tutoriált!"
+    };
+
+    // Képnevek, amelyek cserélhetőek a kör és négyzet verziók között
+    const imageNames = {
+        "KIZ": { circle: "KIZ_aktiv_kor.png", square: "KIZ.png" },
+        "Első Halál": { circle: "elsohalal_aktiv_kor.png", square: "elsohalal.png" },
+        "Első Ellenfél": { circle: "ellenfel_aktiv_kor.png", square: "ellenfel.png" },
+        "Első Találkozás": { circle: "elsotalalkozas_aktiv_kor.png", square: "elsotalalkozas.png" },
+        "Bukott Bukott Angyal": { circle: "gyozdle_aktiv_kor.png", square: "gyozdle.png" },
+        "Első Lépések": { circle: "lepesek_aktiv_kor.png", square: "lepesek.png" }
+    };
+
+    achievements.forEach(img => {
+        img.addEventListener("click", function () {
+            const altText = img.alt;
+            const imageType = "square"; // Változtathatod, hogy a kör vagy a négyzet verziót jelenítse meg (pl. square vagy circle)
+            
+            // Ha a négyzetes verziót akarjuk
+            const imageSrc = imageNames[altText] ? imageNames[altText][imageType] : img.src;
+            
+            achievementImage.src = `img/${imageSrc}`; // A megfelelő verziót állítjuk be
+            achievementTitle.textContent = altText;
+            achievementDescription.textContent = descriptions[altText] || "Ismeretlen achievement.";
+            achievementModal.style.display = "flex";
+        });
+    });
+
+    closeAchievement.addEventListener("click", function () {
+        achievementModal.style.display = "none";
+    });
+
+    window.addEventListener("click", function (event) {
+        if (event.target === achievementModal) {
+            achievementModal.style.display = "none";
+        }
+    });
+});
+
