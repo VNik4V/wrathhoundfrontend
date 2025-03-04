@@ -34,6 +34,7 @@
     background-color: inherit;
     margin-bottom: 5px;
     margin-left: 10px;
+    white-space: pre-line;
 }
 
 .post-date, .comment-date{
@@ -49,6 +50,12 @@
         font-weight: bold;
     }
 }
+
+.post-date{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+ }
 
 .comment {
     display: flex;
@@ -80,4 +87,20 @@
         color: var(--main);
         background-color: transparent;
     }
+}
+
+.plus {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    background-color: var(--button-red);
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 2rem;
+    margin-top: 30px;
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

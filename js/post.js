@@ -1,4 +1,5 @@
 const home = document.getElementById('home');
+const forum = document.getElementById('forum');
 const embark = document.getElementById('embark');
 const game = document.getElementById('game');
 const profile = document.getElementById('profile');
@@ -20,8 +21,6 @@ const urlParams = new URLSearchParams(queryString);
 
 // Get the 'postid' parameter from the URL
 const postId = urlParams.get('postid');
-
-window.addEventListener('DOMContentLoaded', getPost(postId));
 // Fetch the specific post data from your API
 async function getPost(postId) {
     const res = await fetch(`https://nodejs310.dszcbaross.edu.hu/api/forum/post/${postId}`, {
@@ -66,6 +65,13 @@ function renderPost(forum) {
     const date = new Date(forum.post.time).toISOString().split('T')[0].replace('-','.');
     datespan.textContent = date.replace('-','.');
     postDate.appendChild(datespan);
+
+    if(isUserLoggedIn()){
+        const plus = document.createElement('div');
+        plus.classList.add('plus');
+        plus.textContent = '+';
+        postDate.appendChild(plus);
+    }
     post.appendChild(postDate);
     
     container.appendChild(post);
@@ -117,6 +123,7 @@ async function checkUserLoggedIn() {
         embark.textContent = 'Profil';
         embark.addEventListener('click', () => getUserProfile(embark));       
         getUser();
+        getPost(postId);
         
     }
     else{
@@ -124,6 +131,7 @@ async function checkUserLoggedIn() {
         embark.addEventListener('click', toCsatlakozz);
         const user = document.getElementsByClassName('user')[0];
         user.textContent = "";
+        getPost(postId);
     }
 }
 
@@ -188,4 +196,9 @@ async function logoutUser() {
 function getUserProfile(user) {
     const userId = user.getAttribute('userid');
     window.location.href = `../profile.html?userid=${userId}`;
+}
+
+
+function isUserLoggedIn() {
+    return embark.textContent === 'Profil';
 }

@@ -3,6 +3,7 @@ const home = document.getElementById('home');
 const embark = document.getElementById('embark');
 const game = document.getElementById('game');
 const profile = document.getElementById('profile');
+const BTNpost = document.getElementById('BTNpost');
 
 forum.addEventListener('click', () => {
     window.location.href = '../forum.html';
@@ -97,4 +98,32 @@ async function logoutUser() {
 function getUserProfile(user) {
     const userId = user.getAttribute('userid');
     window.location.href = `../profile.html?userid=${userId}`;
+}
+
+
+BTNpost.addEventListener('click', CreatePost);
+
+async function CreatePost() {
+    const title = document.getElementById('title').value;
+    const content = document.getElementById('content').value;
+    console.log(title, content);
+
+    const res = await fetch('https://nodejs310.dszcbaross.edu.hu/api/forum/newpost', {
+        method: 'POST',
+        credentials: 'include',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            title: title,
+            post: content
+        })
+    });
+    const data = await res.json();
+    console.log(data);
+    if (res.ok){
+        alert(data.message);
+        window.location.href = '../forum.html';
+    }
+
 }
