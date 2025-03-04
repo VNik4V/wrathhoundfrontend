@@ -184,7 +184,6 @@ a {
     gap: 10px;
     justify-content: space-evenly;
     flex-wrap: wrap;
-    margin-bottom: 50px;
     align-items: stretch;
     justify-content: center;
     .col-1{
@@ -366,3 +365,5 @@ a {
         }
     }
 }
+
+

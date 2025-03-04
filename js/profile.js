@@ -369,11 +369,10 @@ function drawPending(data) {
     const h2 = document.createElement('h2');
     h2.textContent = "Kérések";
     requests.appendChild(h2);
-
-    for (let i = 0; i < data.length; i++) {
-        const pending = data[i];
         const row = document.createElement('div');
         row.classList.add('row');
+    for (let i = 0; i < data.length; i++) {
+        const pending = data[i];
         const col = document.createElement('div');
         col.classList.add('col-1');
         const span = document.createElement('span');
@@ -481,11 +480,10 @@ function drawFriends(friends) {
     const h2 = document.createElement('h2');
     h2.textContent = 'Barátok';
     userFriends.appendChild(h2);
-
-    for (let i = 0; i < friends.length; i++) {
-        const friend = friends[i];
         const row = document.createElement('div');
         row.classList.add('row');
+    for (let i = 0; i < friends.length; i++) {
+        const friend = friends[i];
         const col = document.createElement('div');
         col.classList.add('col-1');
         const span = document.createElement('span');
