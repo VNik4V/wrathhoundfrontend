@@ -5,7 +5,6 @@
 }
 
 .card {
-    margin: 10px;
     background-color: var(--secondary);
     border-radius: 10px;
     display: flex;
@@ -14,6 +13,7 @@
     padding: 20px;
     cursor: pointer;
     height: 15rem;
+    flex: 1;
 }
 
 .card-header {
@@ -126,3 +126,66 @@
         width: 70vw;
     }
 }
+
+
+
+
+.skeleton {  
+    max-width: 300px;
+    width: 100%;
+    padding: 0 15px;
+    background: var(--secondary);
+    margin-bottom: 20px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.skeleton .lines {
+    height: 12px;
+    margin-bottom:6px;
+    border-radius: 2px;
+    background: rgba(130, 130, 130, 0.2);
+    background: -webkit-gradient(linear, left top, right top, color-stop(8%, rgba(130, 130, 130, 0.2)), color-stop(18%, rgba(130, 130, 130, 0.3)), color-stop(33%, rgba(130, 130, 130, 0.2)));
+    background: linear-gradient(to right, rgba(130, 130, 130, 0.2) 8%, rgba(130, 130, 130, 0.3) 18%, rgba(130, 130, 130, 0.2) 33%);
+    background-size: 800px 100px;
+    width: 100px;
+    animation: wave 1s infinite linear;
+}
+.skeleton-left{
+   flex:2;
+   padding-right:15px;
+   background: transparent;
+}
+.skeleton .lines:last-child{
+   margin-bottom: 0;
+}
+.h8{
+   height: 8px !important;
+}
+.h17{
+   height: 17px !important;
+}
+.w40{
+   width:40% !important;
+}
+.w50{
+   width: 50% !important
+}
+.w75{
+   width: 75% !important
+}
+.m10{
+   margin-bottom: 10px !important;
+}
+
+
+@keyframes wave {
+    0% {
+        background-position: -1000px 0;
+    }
+    100% {
+        background-position: 1000px 0;
+    }
+ }

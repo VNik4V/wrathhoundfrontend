@@ -32,6 +32,7 @@ async function checkUserLoggedIn() {
         embark.textContent = 'Profil';
         embark.addEventListener('click', () => getUserProfile(embark));
         getUser();
+        achievementModal();
     }
     else {
         embark.textContent = 'Csatlakozz';
@@ -39,6 +40,7 @@ async function checkUserLoggedIn() {
         const user = document.getElementsByClassName('user')[0];
         user.textContent = "";
         drawUserInfo();
+        achievementModal();
     }
 }
 
@@ -288,16 +290,29 @@ function openModal(title, type) {
 
     }
 /*
-<h2>Teljesítmények</h2><span class="badge">66,66%</span>                         
+<div>
+    <h2>Teljesítmények</h2>
+    <span class="badge">66,66%</span>
+</div>
 <div class="achievement-container row">
-    <div class="achievement col-6"><i class="fa-brands fa-wolf-pack-battalion"></i></div>
-    <div class="achievement col-6"><i class="fa-brands fa-wolf-pack-battalion"></i></div>
-    <div class="achievement inactive col-6"><i class="fa-brands fa-wolf-pack-battalion"></i>
+    <div class="achievement active col-6">
+        <img src="img/KIZ_aktiv_kor.png" alt="KIZ">
     </div>
-    <div class="achievement col-6"><i class="fa-brands fa-wolf-pack-battalion"></i></div>
-    <div class="achievement inactive col-6"><i class="fa-brands fa-wolf-pack-battalion"></i>
+    <div class="achievement active col-6">
+        <img src="img/elsohalal_aktiv_kor.png" alt="Első Halál">
     </div>
-    <div class="achievement col-6"><i class="fa-brands fa-wolf-pack-battalion"></i></div>
+    <div class="achievement inactive col-6">
+        <img src="img/ellenfel_aktiv_kor.png" alt="Első Ellenfél">
+    </div>
+    <div class="achievement active col-6">
+        <img src="img/elsotalalkozas_aktiv_kor.png" alt="Első Találkozás">
+    </div>
+    <div class="achievement inactive col-6">
+        <img src="img/gyozdle_aktiv_kor.png" alt="Bukott Bukott Angyal">
+    </div>
+    <div class="achievement active col-6">
+        <img src="img/lepesek_aktiv_kor.png" alt="Első Lépések">
+    </div>
 </div>
 */
 
@@ -540,7 +555,7 @@ async function deleteFriends(){
         window.location.reload();
     }
 }
-document.addEventListener("DOMContentLoaded", function () {
+function achievementModal() {
     const achievementModal = document.getElementById("achievementModal");
     const closeAchievement = document.querySelector(".close-achievement");
     const achievementTitle = document.getElementById("achievementTitle");
@@ -592,5 +607,5 @@ document.addEventListener("DOMContentLoaded", function () {
             achievementModal.style.display = "none";
         }
     });
-});
+};
 
