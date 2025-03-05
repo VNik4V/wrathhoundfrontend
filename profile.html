@@ -144,6 +144,35 @@
 
 
 
+<!-- Feltöltési Modal -->
+<div id="uploadModal" class="modal" style="display: none;">
+    <div class="modal-content">
+        
+        <span class="close-upload">&times;</span>
+        <h2>Játék feltöltése</h2>
+        
+        <div class="file-upload-container">
+            <h2>Verzió</h2>
+            <label for="newVersion"></label>
+            <input type="text" id="newVersion" placeholder="0.1">
+            <label for="gameFile" class="file-label">Válassz egy fájlt</label>
+            <input type="file" id="gameFile" class="file-input">
+            <div class="file-name-display" id="fileNameDisplay">Nincs kiválasztva fájl</div>
+        </div>
+
+        <div class="modal-actions">
+            <button id="cancelUploadBtn" class="btn btn-cancel">Mégse</button>
+            <button id="uploadBtn" class="btn btn-upload" disabled>Feltöltés</button>
+        </div>
+
+        <p id="uploadStatus" class="status-message"></p>
+    </div>
+</div>
+
+
+
+
+
 
             </div>
     </div>
