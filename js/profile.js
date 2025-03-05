@@ -347,9 +347,6 @@ function drawButtons(data) {
 
 }
 
-async function Upload() {
-    alert("játékfeltöltés")
-}
 
 async function getFriendRequests() {
     const res = await fetch('https://nodejs310.dszcbaross.edu.hu/api/friends/pending', {
@@ -596,3 +593,108 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+document.addEventListener('DOMContentLoaded', () => {
+    const uploadModal = document.getElementById('uploadModal');
+    const saveBtn = document.getElementById('uploadBtn');  // Feltöltés gomb
+    const closeUploadBtn = document.querySelector('.close-upload');
+    const gameFileInput = document.getElementById('gameFile');
+    const fileNameDisplay = document.getElementById('fileNameDisplay');
+    const cancelUploadBtn = document.getElementById('cancelUploadBtn');
+    const uploadStatus = document.getElementById('uploadStatus');
+    const versionInput = document.getElementById('newVersion'); // Verziószám input
+
+    let uploadType = ''; // Itt lehetne beállítani, hogy milyen típusú fájlokat töltsünk fel (opcionális)
+
+    // Funkció a feltöltési modal megnyitására
+    function openUploadModal() {
+        uploadModal.style.display = 'flex';  // Alapértelmezett modal megjelenítése
+        resetModalState();
+    }
+
+    // Funkció a feltöltési modal bezárására
+    function closeUploadModal() {
+        uploadModal.style.display = 'none';
+        resetModalState();
+    }
+
+    // A modal alapállapotának visszaállítása
+    function resetModalState() {
+        gameFileInput.value = '';
+        fileNameDisplay.textContent = 'Nincs kiválasztva fájl';
+        saveBtn.disabled = true;
+        uploadStatus.textContent = '';
+        versionInput.value = ''; // Reset verzió input
+    }
+
+    // Fájl kiválasztás kezelése
+    gameFileInput.addEventListener('change', (e) => {
+        const file = e.target.files[0];
+        if (file) {
+            fileNameDisplay.textContent = file.name;
+            saveBtn.disabled = false;
+        }
+    });
+
+    // Feltöltés törlésének megerősítése
+    cancelUploadBtn.addEventListener('click', () => {
+        const confirmCancel = confirm('Biztosan meg szeretné szakítani a feltöltést?');
+        if (confirmCancel) {
+            closeUploadModal();
+        }
+    });
+
+    // Modal bezárása a bezárás gombra kattintva
+    closeUploadBtn.addEventListener('click', closeUploadModal);
+
+    // Modal bezárása, ha a modalon kívül kattintanak
+    window.addEventListener('click', (e) => {
+        if (e.target === uploadModal) {
+            closeUploadModal();
+        }
+    });
+
+    // Feltöltés gomb kezelése (fájl és verzió elküldése backendhez)
+    saveBtn.addEventListener('click', async () => {
+        const file = gameFileInput.files[0];
+        const version = versionInput.value.trim();
+
+        if (!file || !version) {
+            uploadStatus.textContent = 'Kérlek add meg a verziót és válassz fájlt!';
+            return;
+        }
+
+        uploadStatus.textContent = 'Feltöltés folyamatban...';
+
+        try {
+            // FormData létrehozása a fájl és verzió küldéséhez
+            const formData = new FormData();
+            formData.append('file', file);
+            formData.append('version', version);
+
+            // Fetch kérés küldése a backend API-ra
+            const response = await fetch('https://nodejs310.dszcbaross.edu.hu/api/game/upload', {
+                method: 'POST',
+                body: formData
+            });
+
+            if (!response.ok) {
+                throw new Error('A feltöltés nem sikerült!');
+            }
+
+            const result = await response.json();
+            uploadStatus.textContent = 'Sikeres feltöltés!';
+            console.log(result); // Eredmény kiírása a konzolra
+            closeUploadModal(); // Modal bezárása sikeres feltöltés után
+        } catch (error) {
+            uploadStatus.textContent = `Hiba történt: ${error.message}`;
+        }
+    });
+
+    // Az openUploadModal globális elérhetőségének biztosítása a drawButtons használatához
+    window.openUploadModal = openUploadModal;
+});
+
+// A meglévő Upload funkció módosítása a modal megnyitásához
+function Upload() {
+    window.openUploadModal();
+}

@@ -87,12 +87,18 @@ a {
     opacity: 100%;
     overflow: hidden;
 }
+.second-menu a:hover{
+    transform: scale(105%);
+}
 
 .main-menu button {
     border: none;
     font-size: 1.4rem;
     cursor: pointer;
     background-color: transparent;
+}
+.main-menu button:hover{
+   opacity: 80%;
 }
 
 .line {
@@ -120,6 +126,9 @@ a {
     cursor: pointer;
     border-radius: 50%;
     align-items: center;
+}
+#light label:hover {
+opacity: 70%;
 }
 
 #lightMode {
@@ -170,12 +179,25 @@ a {
         }
     }
 }
+
+#logout:hover{
+    opacity: 80%;
+}
 #game {
     color: white;
     background-color: var(--button-red);
     border-radius: 10px;
     width: 150px;
     padding: 9px;
+}
+#game:hover{
+    opacity: 90%;
+}
+#profile b:hover{
+    opacity: 60%;
+}
+#profile img:hover{
+    transform: scale(105%);
 }
 
 .row{
@@ -290,6 +312,34 @@ a {
     display: flex;
 }
 
+
+
+.top {
+    position: fixed;
+    right: 40px;
+    bottom: 70px;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    color: white;
+    height: 55px;
+    width: 55px;
+    background-color: #C33835;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.4s, transform 0.3s;
+    transform: translateY(10px);
+}
+
+.top.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 @media screen and (max-width: 1260px) {
     .ham{
         position: relative;
@@ -339,6 +389,20 @@ a {
         font-size: 7vw;
     }
 
+   .modal-content{
+        width: 400px;      
+    }
+    .modal-content img{
+        height: 340px;
+
+    }
+
+    #newValue, #newVersion{
+        max-width: 360px;
+    }
+
+
+
 }
 @media screen and (max-width: 800px) {
     .row{
@@ -351,6 +415,9 @@ a {
         .col-4{
             grid-column: span 6;
         }
+    }
+    .top{
+        display: none;
     }
 }
 @media screen and (max-width: 550px) {

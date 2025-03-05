@@ -77,6 +77,12 @@
         
     }
 }
+.friends span{
+    margin-top: 5px;
+}
+.friends span:hover{
+transform: scale(110%);
+}
 
 .requests{
     margin-top: 10px;
@@ -162,7 +168,10 @@
     width: 100%;
 }
 
+.Changegbtn:hover {
+    transform: scale(97%);
 
+}
 .achivementek{
     background-color: transparent;
 }
@@ -186,6 +195,7 @@
     align-self: flex-end;
 }
 .achievement {
+    cursor: pointer;
     width: 100px;
     height: 100px;
     border-radius: 50%;
@@ -199,6 +209,9 @@
         color: black;
         background-color: transparent;
     }
+}
+.achievement:hover{
+    transform: scale(103%);
 }
 
 .inactive {
@@ -221,14 +234,15 @@
     align-items: center;
 }
 
-.modal-content {  
+.modal-content { 
+    align-items: center; 
     padding: 20px;
     border-radius: 8px;
     text-align: center;
-    min-width: 300px;
+    max-width: 600px;
 }
 
-.close, .close-achievement {
+.close, .close-achievement, .close-upload {
     position: absolute;
     right: 15px;
     top: 10px;
@@ -245,6 +259,12 @@
 
 
 }
+
+.close:hover, .close-achievement:hover,.close-upload:hover {
+    transform: scale(90%);
+}
+
+
 #saveChanges{
     margin-top: 2rem;
     font-size: 1.5rem;
@@ -259,7 +279,10 @@
     align-items: center;
     width: 100%;
 }
-#newValue{
+#saveChanges:hover{
+    opacity: 70%;
+}
+#newValue,#newVersion{
     font-size: large;
     display: flex;
     padding: 15px;
@@ -271,6 +294,9 @@
     background-color: var(--secondary);
     border-radius: 20px;
     margin: 20px 0;
+}
+#newVersion{
+    text-align: center;
 }
 
 .badge {
@@ -300,4 +326,71 @@
     margin-top: 20px;
     font-size: larger;
     
+}
+
+
+
+.file-upload-container {
+    margin: 20px 0;
+}
+
+.file-label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.file-input {
+    display: none;
+}
+
+.file-name-display {
+    color: black;
+    border: 1px dashed #ccc;
+    padding: 10px;
+    margin-top: 10px;
+    background-color: #f9f9f9;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.btn {
+    
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 1.3rem;
+}
+
+.btn-cancel {
+    background-color: #f44336;
+    color: white;
+}
+
+.btn-upload {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.btn-upload:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+.status-message {
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+
+.file-label{
+    cursor: pointer;
+}
+.file-label:hover{
+transform: scale(105%);
 }
