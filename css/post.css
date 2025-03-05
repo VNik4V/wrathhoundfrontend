@@ -41,7 +41,8 @@
     background-color: inherit;
     align-items: flex-end;
     display: flex;
-    flex-direction: column;
+    flex-direction: row-reverse;
+    justify-content: space-between;
     span {
         background-color: var(--main-text);
         color: var(--secondary);
@@ -51,11 +52,6 @@
     }
 }
 
-.post-date{
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: space-between;
- }
 
 .comment {
     display: flex;
@@ -103,6 +99,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    i{
+        font-size: 1.3rem;
+        color: white;
+        background-color: transparent;
+    }
 }
 
 .modal {
