@@ -30,6 +30,7 @@
 }
 
 .post-content, .comment-body{
+    overflow: hidden;
     background-color: inherit;
     margin-bottom: 5px;
     margin-left: 10px;
