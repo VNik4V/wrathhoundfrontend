@@ -14,6 +14,7 @@ forum.addEventListener('click', () => {
 });
 
 let userId;
+let admin;
 
 const queryString = window.location.search;
 
@@ -73,7 +74,7 @@ function renderPost(forum) {
         plus.textContent = '+';
         plus.addEventListener('click', () => openModal('Új komment'))
         postDate.appendChild(plus);
-        if (forum.post.uid == userId) {
+        if (forum.post.uid == userId || admin) {
             const deletebtn = document.createElement('div');
             deletebtn.classList.add('plus');
             const can = document.createElement('i');
@@ -115,7 +116,7 @@ function renderPost(forum) {
         const date = new Date(comments.time).toISOString().split('T')[0].replace('-', '.');
         datespan.textContent = date.replace('-', '.');
         commentDate.appendChild(datespan);
-        if (comments.uid == userId) {
+        if (comments.uid == userId || admin) {
             const deletebtn = document.createElement('div');
             deletebtn.classList.add('plus');
             const can = document.createElement('i');
@@ -170,6 +171,12 @@ async function getUser() {
     const data = await res.json();
     console.log(data);
     if (data.username) {
+        if(data.role == 'admin') {
+            admin = true;
+        }
+        else{
+            admin = false;
+        }
         draw(data);
         userId = data.uid;
         const embark = document.getElementById('embark');

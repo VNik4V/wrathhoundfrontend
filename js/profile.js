@@ -616,7 +616,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const uploadStatus = document.getElementById('uploadStatus');
     const versionInput = document.getElementById('newVersion'); // Verziószám input
 
-    let uploadType = ''; // Itt lehetne beállítani, hogy milyen típusú fájlokat töltsünk fel (opcionális)
 
     // Funkció a feltöltési modal megnyitására
     function openUploadModal() {
@@ -686,7 +685,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Fetch kérés küldése a backend API-ra
             const response = await fetch('https://nodejs310.dszcbaross.edu.hu/api/game/upload', {
-                method: 'POST',
+                method: 'PUT',
                 body: formData
             });
 

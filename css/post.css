@@ -30,11 +30,13 @@
 }
 
 .post-content, .comment-body{
-    overflow: hidden;
     background-color: inherit;
     margin-bottom: 5px;
     margin-left: 10px;
-    white-space: pre-line;
+    word-wrap: break-word;
+    overflow-wrap: break-word; 
+    white-space: pre-line;  
+    max-width: 100%;
 }
 
 .post-date, .comment-date{
