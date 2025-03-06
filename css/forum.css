@@ -25,10 +25,12 @@
 }
 
 .card-header h2 {
+    overflow: hidden;
     background-color: inherit;
 }
 
 .card-body {
+    overflow: hidden;
     background-color: inherit;
 }
 
