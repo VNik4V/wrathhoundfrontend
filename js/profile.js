@@ -567,7 +567,10 @@ function achievementModal() {
         "Első Ellenfél": "Győzd le első ellenfeled!",
         "Első Találkozás": "Juss el Ismériáshoz!",
         "Bukott Bukott Angyal": "Győzd le Ismériást a tutoriálban!",
-        "Első Lépések": "Teljesítsd a tutoriált!"
+        "Első Lépések": "Teljesítsd a tutoriált!",
+        "Új kaland": "Csapasd a játékot",
+        "Üdvözöllek": "Lépj be elöször a játékba"
+
     };
 
     // Képnevek, amelyek cserélhetőek a kör és négyzet verziók között
@@ -577,11 +580,14 @@ function achievementModal() {
         "Első Ellenfél": { circle: "ellenfel_aktiv_kor.png", square: "ellenfel.png" },
         "Első Találkozás": { circle: "elsotalalkozas_aktiv_kor.png", square: "elsotalalkozas.png" },
         "Bukott Bukott Angyal": { circle: "gyozdle_aktiv_kor.png", square: "gyozdle.png" },
-        "Első Lépések": { circle: "lepesek_aktiv_kor.png", square: "lepesek.png" }
+        "Első Lépések": { circle: "lepesek_aktiv_kor.png", square: "lepesek.png" },
+        "Új kaland": { circle: "kaland_aktiv_kor.png", square: "kaland.png" },
+        "Üdvözöllek": { circle: "udv_aktiv_kor.png", square: "udv.png" }
     };
 
     achievements.forEach(img => {
         img.addEventListener("click", function () {
+            console.log(img)
             const altText = img.alt;
             const imageType = "square"; // Változtathatod, hogy a kör vagy a négyzet verziót jelenítse meg (pl. square vagy circle)
             
