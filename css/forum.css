@@ -19,11 +19,14 @@
 .card:hover{
     background-color: var(--button-red);
     opacity: 75%;
+    color: white;
     transition: opacity 1s;
-    transition: background-color 1.5s;
+    transition: color 1s;
+    transition: background-color 1.5s;  
 }
 
 .card-header {
+    color: inherit;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -37,6 +40,7 @@
 }
 
 .card-body {
+    color: inherit;
     flex-grow: 1;
     display: flex;
     flex-direction: column;
@@ -47,6 +51,7 @@
 }
 
 .card-body-inner{
+    color: inherit;
     max-height: 10rem;
     padding-bottom: 50%;
     background-color: inherit;
