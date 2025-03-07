@@ -172,19 +172,28 @@ async function getUser() {
 
     if (data.username) {
         draw(data);
-        console.log(data.uid)
         const embark = document.getElementById('embark');
         embark.setAttribute('userid', data.uid);
-        console.log(uid);
+
         if (uid != data.uid) {
             drawProfile(uid);
             gotuser = data;
-        }
-        else {
+        } else {
             drawUserProfile(data);
         }
+
+        // Teljesítmény kiírása
+        updateCompletionBadge(data.completion);
     }
 }
+
+function updateCompletionBadge(completion) {
+    const badge = document.querySelector('.badge');
+    if (badge) {
+        badge.textContent = `${completion}% Teljesítve`;
+    }
+}
+
 
 function draw(data) {
     const user = document.getElementsByClassName('user')[0];
@@ -471,6 +480,11 @@ function drawFelhasznalo(data) {
     console.log(row);
 
     userInformation.appendChild(row);
+}
+
+function drawTeljestimeny(data) {
+    const userComp = document.getElementsByClassName('badge')[0];
+    userComp.innerHTML = "";
 }
 
 async function getFriends() {
