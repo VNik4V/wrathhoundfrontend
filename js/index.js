@@ -105,3 +105,7 @@ function getUserProfile(user) {
     const userId = user.getAttribute('userid');
     window.location.href = `../profile.html?userid=${userId}`;
 }
+
+topButton.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+});

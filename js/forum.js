@@ -70,13 +70,16 @@ function renderPosts(posts) {
 
         const cardHeader = document.createElement('div');
         cardHeader.classList.add('card-header');
-        cardHeader.textContent = forum.username;
+        cardHeader.textContent = cleanText(forum.username);
         card.appendChild(cardHeader);
 
 
         const cardBody = document.createElement('div');
         cardBody.classList.add('card-body');
-        cardBody.textContent = forum.title;
+        const cardBodyinner = document.createElement('div');
+        cardBodyinner.classList.add('card-body-inner');
+        cardBodyinner.textContent = cleanText(forum.title);
+        cardBody.appendChild(cardBodyinner)
         card.appendChild(cardBody);
 
 
@@ -197,4 +200,9 @@ async function logoutUser() {
 function getUserProfile(user) {
     const userId = user.getAttribute('userid');
     window.location.href = `../profile.html?userid=${userId}`;
+}
+
+
+function cleanText(text) {
+    return text.replace(/[^\p{L}\p{N}\s.,!?-]/gu, "");
 }
