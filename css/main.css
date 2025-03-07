@@ -95,10 +95,15 @@ a {
     border: none;
     font-size: 1.4rem;
     cursor: pointer;
-    background-color: transparent;
+    background-image: linear-gradient(to right, var(--button-red) 50%, var(--secondary-text) 50%);
+    background-size: 200% 100%;
+    background-position: 100% 0;
+    background-clip: text;
 }
 .main-menu button:hover{
-   opacity: 80%;
+    color: transparent;
+    background-position: 0 0;   
+    transition: background-position 0.5s ease-in-out;
 }
 
 .line {
@@ -183,9 +188,12 @@ opacity: 70%;
 #logout:hover{
     opacity: 80%;
 }
+
 #game {
     color: white;
     background-color: var(--button-red);
+    background-image: var(--button-red);
+    background-clip:border-box;
     border-radius: 10px;
     width: 150px;
     padding: 9px;
@@ -193,6 +201,7 @@ opacity: 70%;
 #game:hover{
     opacity: 90%;
 }
+
 #profile b:hover{
     opacity: 60%;
 }

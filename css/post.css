@@ -18,6 +18,17 @@
     margin-bottom: 10px;
     overflow: hidden;
     cursor: pointer;
+    background-image: linear-gradient(to right, var(--button-red) 50%, var(--secondary-text) 50%);
+    background-size: 200% 100%;
+    background-position: 100% 0;
+    background-clip: text;
+}
+
+.post-author:hover, .comment-author:hover{
+    color: transparent;
+    background-position: 0 0;   
+    transition: background-position 2.5s ease-in-out;
+    
 }
 
 .post-title {
