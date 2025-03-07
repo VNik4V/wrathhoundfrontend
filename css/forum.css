@@ -12,8 +12,15 @@
     justify-content: space-between;
     padding: 20px;
     cursor: pointer;
-    height: 15rem;
+    height: auto;
     flex: 1;
+}
+
+.card:hover{
+    background-color: var(--button-red);
+    opacity: 75%;
+    transition: opacity 1s;
+    transition: background-color 1.5s;
 }
 
 .card-header {
@@ -30,8 +37,23 @@
 }
 
 .card-body {
-    overflow: hidden;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    border-radius: inherit;
     background-color: inherit;
+    overflow: hidden;
+}
+
+.card-body-inner{
+    max-height: 10rem;
+    padding-bottom: 50%;
+    background-color: inherit;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 10px;
+    text-overflow: ellipsis;
 }
 
 .card-footer {
@@ -45,7 +67,7 @@
 }
 
 .post-date {
-    font-size: 0.8rem;
+    font-size: 1rem;
     background-color: var(--main-text);
     color: var(--secondary);
     padding: 5px 10px;
@@ -54,6 +76,7 @@
 }
 
 .comment-count {
+    font-size: 1rem;
     background-color: var(--main-text);
     color: var(--secondary);
     padding: 5px 10px;

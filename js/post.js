@@ -43,18 +43,18 @@ function renderPost(forum) {
     const postAuthor = document.createElement('div');
     postAuthor.classList.add('post-author');
     postAuthor.setAttribute('userid', forum.post.uid);
-    postAuthor.textContent = forum.post.username;
+    postAuthor.textContent = cleanText(forum.post.username);
     postAuthor.addEventListener('click', () => getUserProfile(postAuthor));
     post.appendChild(postAuthor);
 
     const postTitle = document.createElement('div');
     postTitle.classList.add('post-title');
-    postTitle.textContent = forum.post.title;
+    postTitle.textContent = cleanText(forum.post.title);
     post.appendChild(postTitle);
 
     const postContent = document.createElement('div');
     postContent.classList.add('post-content');
-    postContent.textContent = forum.post.post;
+    postContent.textContent = cleanText(forum.post.post);
     post.appendChild(postContent);
 
     const line = document.createElement('div');
@@ -96,14 +96,14 @@ function renderPost(forum) {
 
         const commentAuthor = document.createElement('div');
         commentAuthor.classList.add('comment-author');
-        commentAuthor.textContent = comments.username;
+        commentAuthor.textContent = cleanText(comments.username);
         commentAuthor.setAttribute('userid', comments.uid);
         commentAuthor.addEventListener('click', () => getUserProfile(commentAuthor));
         comment.appendChild(commentAuthor);
 
         const commentContent = document.createElement('div');
         commentContent.classList.add('comment-body');
-        commentContent.textContent = comments.post;
+        commentContent.textContent = cleanText(comments.post);
         comment.appendChild(commentContent);
 
         const line = document.createElement('div');
@@ -332,4 +332,8 @@ async function deleteComment(btn) {
         console.error(error);
         alert("Hiba a törlés közben!");
     }
+}
+
+function cleanText(text) {
+    return text.replace(/[^\p{L}\p{N}\s.,!?-]/gu, "");
 }

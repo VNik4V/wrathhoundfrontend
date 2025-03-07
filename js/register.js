@@ -52,6 +52,7 @@ async function Registration() {
     else if(res.ok){
         alert(data.message);
         resetInputs();
+        loggingIn(email, psw);
     }
     else{
         console.log('Registration failed')
@@ -64,4 +65,32 @@ function resetInputs() {
     document.getElementById('psw').value = null;
     document.getElementById('psw2').value = null;
     document.getElementById('username').value = null;
+}
+
+async function loggingIn(email, psw) {
+    const res = await fetch('https://nodejs310.dszcbaross.edu.hu/api/auth/login', {
+        method: 'POST',
+        credentials: 'include',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            email,
+            psw,
+            remember: false
+        })
+    });
+    const data = await res.json();
+    if(data.error){
+        console.log(data.error)
+        alert(data.error);
+    }
+    else if(res.ok){
+        window.location.href = '../index.html';
+        localStorage.setItem('token', data.token);
+    }
+    else{
+        console.log('Login failed')
+    }
+    resetInputs();
 }

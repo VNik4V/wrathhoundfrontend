@@ -242,7 +242,6 @@ opacity: 70%;
     .col-4{
         grid-column: span 3;
         text-align: justify;
-        padding: 15px;
         margin-bottom: 20px;
         font-size: 1.5rem;
         display: flex;

@@ -17,7 +17,3 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log("Light mode állapot:", checkbox.checked);
 });
 
-
-topButton.addEventListener("click", () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-});
