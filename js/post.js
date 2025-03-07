@@ -335,5 +335,5 @@ async function deleteComment(btn) {
 }
 
 function cleanText(text) {
-    return text.replace(/[^\p{L}\p{N}\s.,!?-]/gu, "");
+    return text.replace(/[\u0300-\u036f]/g, '');
 }
