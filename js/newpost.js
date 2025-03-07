@@ -105,7 +105,7 @@ BTNpost.addEventListener('click', CreatePost);
 
 async function CreatePost() {
     const title = document.getElementById('title').value;
-    const content = document.getElementById('content').value;
+    const content = document.getElementById('content').value.trim();
     console.log(title, content);
 
     const res = await fetch('https://nodejs310.dszcbaross.edu.hu/api/forum/newpost', {

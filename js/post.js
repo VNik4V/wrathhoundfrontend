@@ -254,7 +254,7 @@ function openModal(title) {
     });
 
     saveBtn.addEventListener('click', async () => {
-        const newValue = inputField.value;
+        const newValue = inputField.value.trim();
 
         console.log(newValue);
         if (!newValue) {
