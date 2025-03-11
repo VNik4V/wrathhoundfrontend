@@ -2,7 +2,7 @@ const home = document.getElementById('home');
 const embark = document.getElementById('embark');
 const game = document.getElementById('game');
 const profile = document.getElementById('profile');
-const search = document.getElementById('search');
+const search = document.getElementsByClassName('fa')[0];
 const plus = document.getElementsByClassName('plusz')[0];
 
 plus.addEventListener('click', () => {
