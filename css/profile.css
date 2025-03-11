@@ -202,14 +202,8 @@ transform: scale(110%);
     display: flex;
     background-color: white;
     border: 5px solid var(--main-text);
-    i{
-        text-align: center;
-        margin: auto;
-        font-size: 3rem;
-        color: black;
-        background-color: transparent;
-    }
 }
+
 .achievement:hover{
     transform: scale(103%);
 }
@@ -328,8 +322,6 @@ transform: scale(110%);
     
 }
 
-
-
 .file-upload-container {
     margin: 20px 0;
 }
@@ -393,4 +385,11 @@ transform: scale(110%);
 }
 .file-label:hover{
 transform: scale(105%);
+}
+
+@media screen and (max-width: 920px){
+    .achievement-container{
+        height: unset;
+        padding-bottom: 20px;
+    }
 }

@@ -349,18 +349,20 @@ opacity: 70%;
 
 @media screen and (max-width: 1260px) {
     .ham{
-        position: relative;
-        top: 20px;       
+        position: relative;  
+        top: 20px;     
         margin-bottom: 40px;
     }
     .hamburger-menu {
         display: flex;
         margin-left: 20px;
-        z-index: 1000;        
+        z-index: 1000;     
     }
 
     nav {
         display: none;
+        position: fixed;
+        z-index: 999;
         .main-menu{
             flex-direction: column;
             gap: 30px;
@@ -423,6 +425,12 @@ opacity: 70%;
         .col-4{
             grid-column: span 6;
         }
+         .col-6{
+            grid-column: span 12;
+        }
+        .col-6-pair{
+            grid-column: span 12;
+        }
     }
     .top{
         display: none;
@@ -438,6 +446,15 @@ opacity: 70%;
             grid-column: span 12;
         }
         .col-4{
+            grid-column: span 12;
+        }
+        .col-6{
+            grid-column: span 12;
+        }
+        .col-6-pair{
+            grid-column: span 12;
+        }
+        .col-3-pair{
             grid-column: span 12;
         }
     }

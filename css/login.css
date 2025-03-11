@@ -169,7 +169,7 @@ input {
 @media screen and (max-width: 1260px) {
     .row{
         .col-2{
-            flex: 0 0 calc(100% / 1);
+            grid-column: span 12;
             min-height: 75vh;
         }
     }
