@@ -182,6 +182,8 @@ async function getUser() {
             gotuser = data;
         } else {
             drawUserProfile(data);
+            updateCompletionBadge(data.completion);
+            akitv();
         }
 
         // Teljesítmény kiírása
