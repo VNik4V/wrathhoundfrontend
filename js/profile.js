@@ -80,13 +80,13 @@ async function checkPending() {
     });
     const data = await res.json();
     console.log(data)
-    if(data.message !== 'Nincsenek kérelmeid'){
-        
+    if (data.message !== 'Nincsenek kérelmeid') {
+
         const isFriend = data.some(sender => sender.sender_id == uid) || false;
         console.log(isFriend);
         isFriend ? answerButtons() : addFriendButton();
     }
-    else{
+    else {
         addFriendButton();
     }
 }
@@ -187,7 +187,7 @@ async function getUser() {
         }
 
         // Teljesítmény kiírása
-        
+
     }
 }
 
@@ -245,18 +245,18 @@ function getUserProfile(user) {
 }
 
 function openModal(title, type) {
-        const modal = document.getElementById('modal');
-        const saveBtn = document.getElementById('saveChanges');
-        const closeModal = document.querySelector('.close');
-        const inputField = document.getElementById('newValue');
+    const modal = document.getElementById('modal');
+    const saveBtn = document.getElementById('saveChanges');
+    const closeModal = document.querySelector('.close');
+    const inputField = document.getElementById('newValue');
 
-        let editType = '';
-        document.querySelector('.modal-content h2').textContent = title;
-        inputField.value = '';  // Alapból töröljük a mezőt
-        modal.style.display = 'flex';
-        editType = type; 
+    let editType = '';
+    document.querySelector('.modal-content h2').textContent = title;
+    inputField.value = '';  // Alapból töröljük a mezőt
+    modal.style.display = 'flex';
+    editType = type;
 
-     closeModal.addEventListener('click', () => {
+    closeModal.addEventListener('click', () => {
         modal.style.display = 'none';
     });
     window.addEventListener('click', (event) => {
@@ -273,7 +273,7 @@ function openModal(title, type) {
             alert("Nem adtál meg új értéket!");
             return;
         }
-        try{
+        try {
             const res = await fetch('https://nodejs310.dszcbaross.edu.hu/api/user/editprofile', {
                 method: 'PUT',
                 credentials: 'include',
@@ -286,14 +286,14 @@ function openModal(title, type) {
             })
             const data = await res.json();
             console.log(data);
-            if(res.ok){
+            if (res.ok) {
                 alert("Sikeres mentés!");
                 modal.style.display = 'none';
                 getUserProfile(document.getElementById('profile'));
             }
 
         }
-        catch(error){
+        catch (error) {
             console.error(error);
             alert("Hiba a mentés közben!");
         }
@@ -301,7 +301,7 @@ function openModal(title, type) {
 
     });
 
-    }
+}
 /*
 <div>
     <h2>Teljesítmények</h2>
@@ -394,8 +394,8 @@ function drawPending(data) {
     const h2 = document.createElement('h2');
     h2.textContent = "Kérések";
     requests.appendChild(h2);
-        const row = document.createElement('div');
-        row.classList.add('row');
+    const row = document.createElement('div');
+    row.classList.add('row');
     for (let i = 0; i < data.length; i++) {
         const pending = data[i];
         const col = document.createElement('div');
@@ -510,8 +510,8 @@ function drawFriends(friends) {
     const h2 = document.createElement('h2');
     h2.textContent = 'Barátok';
     userFriends.appendChild(h2);
-        const row = document.createElement('div');
-        row.classList.add('row');
+    const row = document.createElement('div');
+    row.classList.add('row');
     for (let i = 0; i < friends.length; i++) {
         const friend = friends[i];
         const col = document.createElement('div');
@@ -544,7 +544,7 @@ function ChangePassword() {
 }
 
 async function addFriends() {
-    const res = await fetch(`https://nodejs310.dszcbaross.edu.hu/api/friends/addfriend/${uid}`,{
+    const res = await fetch(`https://nodejs310.dszcbaross.edu.hu/api/friends/addfriend/${uid}`, {
         method: 'POST',
         credentials: 'include',
         headers: {
@@ -552,20 +552,20 @@ async function addFriends() {
         }
     });
     const data = await res.json();
-    if(res.ok){
+    if (res.ok) {
         alert(data.message);
         window.location.reload();
     }
 }
-async function deleteFriends(){
-    const res = await fetch(`https://nodejs310.dszcbaross.edu.hu/api/friends/removefriend/${uid}`,{
+async function deleteFriends() {
+    const res = await fetch(`https://nodejs310.dszcbaross.edu.hu/api/friends/removefriend/${uid}`, {
         method: 'DELETE',
         credentials: 'include',
         headers: {
             'Content-Type': 'application/json'
         }
     });
-    if(res.ok){
+    if (res.ok) {
         alert('Sikeres törlés!');
         window.location.reload();
     }
@@ -608,10 +608,10 @@ function achievementModal() {
             console.log(img)
             const altText = img.alt;
             const imageType = "square"; // Változtathatod, hogy a kör vagy a négyzet verziót jelenítse meg (pl. square vagy circle)
-            
+
             // Ha a négyzetes verziót akarjuk
             const imageSrc = imageNames[altText] ? imageNames[altText][imageType] : img.src;
-            
+
             achievementImage.src = `img/${imageSrc}`; // A megfelelő verziót állítjuk be
             achievementTitle.textContent = altText;
             achievementDescription.textContent = descriptions[altText] || "Ismeretlen achievement.";
@@ -735,33 +735,45 @@ function Upload() {
     window.openUploadModal();
 }
 
-async function  akitv() {
-    // Bejelentkezett felhasználó ID-je
+async function akitv() {
+    
     const apiUrl = `https://nodejs310.dszcbaross.edu.hu/api/achievements/userachievements/${uid}`;
 
     try {
         const response = await fetch(apiUrl, {
-            methode: 'GET',
-            credentials:  'include'
+            method: 'GET',
+            credentials: 'include'
         });
+
         if (!response.ok) throw new Error("Hiba az adatok lekérésekor");
 
         const userAchievements = await response.json();
-        const userAchievementIds = userAchievements.map(ach => ach.aid); // ID-k tömbje
+        console.log(userAchievements.length)
+        if (userAchievements.length === undefined) {
+            document.querySelectorAll(".achievement").forEach(achievement => {
+                achievement.classList.add("inactive");
+            });
+        }
+        else {
+            const userAchievementIds = userAchievements.map(ach => ach.aid);
 
-        document.querySelectorAll(".achievement").forEach(achievement => {
-            const achId = parseInt(achievement.dataset.aid); // HTML-ből kiolvasott ID számként
+            document.querySelectorAll(".achievement").forEach(achievement => {
+                const achId = parseInt(achievement.dataset.aid);
 
-            if (!userAchievementIds.includes(achId)) {
-                achievement.classList.add("inactive"); // Ha nincs meg, inaktív lesz
-            } else {
-                achievement.classList.remove("inactive"); // Ha megvan, aktív lesz
-            }
-        });
+                if (!userAchievementIds.includes(achId)) {
+                    achievement.classList.add("inactive");
+                }
+                else {
+                    achievement.classList.remove("inactive");
+                }
+            });
+        }
+
 
     } catch (error) {
         console.error("Hiba történt: ", error);
     }
-};
+}
+
 
 
