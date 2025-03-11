@@ -156,6 +156,8 @@ async function getUserInfo() {
     const data = await res.json();
     console.log(data);
     drawFelhasznalo(data);
+    updateCompletionBadge(data.completion);
+    akitv();
 }
 
 function toCsatlakozz() {
@@ -183,7 +185,7 @@ async function getUser() {
         }
 
         // Teljesítmény kiírása
-        updateCompletionBadge(data.completion);
+        
     }
 }
 
@@ -730,3 +732,34 @@ document.addEventListener('DOMContentLoaded', () => {
 function Upload() {
     window.openUploadModal();
 }
+
+async function  akitv() {
+    // Bejelentkezett felhasználó ID-je
+    const apiUrl = `https://nodejs310.dszcbaross.edu.hu/api/achievements/userachievements/${uid}`;
+
+    try {
+        const response = await fetch(apiUrl, {
+            methode: 'GET',
+            credentials:  'include'
+        });
+        if (!response.ok) throw new Error("Hiba az adatok lekérésekor");
+
+        const userAchievements = await response.json();
+        const userAchievementIds = userAchievements.map(ach => ach.aid); // ID-k tömbje
+
+        document.querySelectorAll(".achievement").forEach(achievement => {
+            const achId = parseInt(achievement.dataset.aid); // HTML-ből kiolvasott ID számként
+
+            if (!userAchievementIds.includes(achId)) {
+                achievement.classList.add("inactive"); // Ha nincs meg, inaktív lesz
+            } else {
+                achievement.classList.remove("inactive"); // Ha megvan, aktív lesz
+            }
+        });
+
+    } catch (error) {
+        console.error("Hiba történt: ", error);
+    }
+};
+
+
