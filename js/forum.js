@@ -5,6 +5,11 @@ const profile = document.getElementById('profile');
 const search = document.getElementsByClassName('fa')[0];
 const plus = document.getElementsByClassName('plusz')[0];
 
+
+import hello from'./enter.js'
+
+console.log(hello('agdhfsj'));
+
 plus.addEventListener('click', () => {
     window.location.href = '../newpost.html';
 });
