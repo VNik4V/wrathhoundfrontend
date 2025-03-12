@@ -46,7 +46,7 @@
 
 .logo-line {
     border: solid var(--secondary) 8px;
-    width: 100%;
+
     position: relative;
     z-index: 2;
     transform: translate(0, -26vw);   

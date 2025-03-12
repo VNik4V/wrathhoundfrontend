@@ -19,8 +19,22 @@
     background-color: var(--main);
     z-index: -10;
 }
+.light-theme {
+    --main: #C2FFCA;
+    --main-text: #0F3B52;
+    --secondary: #F7F8CA;
+    --secondary-text: #453A43;
+}
 
-* {
+
+.light-theme {
+    --main: #C2FFCA;
+    --main-text: #0F3B52;
+    --secondary: #F7F8CA;
+    --secondary-text: #453A43;
+}
+
+body {
     background-color: var(--main);
     color: var(--secondary-text);
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
@@ -29,6 +43,10 @@
     box-sizing: border-box;
 }
 
+
+a{
+    color: var(--main-text);
+}
 
 nav {
     display: flex;

@@ -15,6 +15,8 @@ textarea:focus { outline: 0; }
     background-color: inherit;
 }
 #title{
+
+    
     font-weight: bolder;
     padding: 10px;
 }
@@ -52,6 +54,7 @@ textarea {
 }
 
 input {
+    color: var(--main-text);
     background-color: var(--secondary);
     border: solid 1px var(--secondary-text);
     font-size: 1.5rem;
