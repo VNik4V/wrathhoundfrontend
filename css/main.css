@@ -361,8 +361,6 @@ opacity: 70%;
 
     nav {
         display: none;
-        position: fixed;
-        z-index: 999;
         .main-menu{
             flex-direction: column;
             gap: 30px;
