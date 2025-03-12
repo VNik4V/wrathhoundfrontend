@@ -4,7 +4,7 @@ const game = document.getElementById('game');
 const profile = document.getElementById('profile');
 const search = document.getElementsByClassName('fa')[0];
 const plus = document.getElementsByClassName('plusz')[0];
-
+const searchInput = document.getElementById('searchText');
 
 import hello from'./enter.js'
 
@@ -15,6 +15,13 @@ plus.addEventListener('click', () => {
 });
 
 search.addEventListener('click', searchForum);
+
+searchInput.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter') {
+        e.preventDefault();
+        searchForum();
+    }
+});
 
 async function searchForum() {
     const searchTerm = document.getElementById('searchText').value;
