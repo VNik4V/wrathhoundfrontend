@@ -27,8 +27,7 @@
 .post-author:hover, .comment-author:hover{
     color: transparent;
     background-position: 0 0;   
-    transition: background-position 2.5s ease-in-out;
-    
+    transition: background-position 2.5s linear;   
 }
 
 .post-title {

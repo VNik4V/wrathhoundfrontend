@@ -99,11 +99,11 @@ a {
     background-size: 200% 100%;
     background-position: 100% 0;
     background-clip: text;
+    color: transparent;
+    transition: 0.7s ease-in-out;
 }
 .main-menu button:hover{
-    color: transparent;
     background-position: 0 0;   
-    transition: background-position 0.5s ease-in-out;
 }
 
 .line {
