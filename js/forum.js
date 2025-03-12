@@ -1,3 +1,4 @@
+
 const home = document.getElementById('home');
 const embark = document.getElementById('embark');
 const game = document.getElementById('game');

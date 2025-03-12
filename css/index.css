@@ -45,8 +45,7 @@
 }
 
 .logo-line {
-    border: solid var(--secondary) 8px;
-
+    border: solid var(--secondary) 8px;   
     position: relative;
     z-index: 2;
     transform: translate(0, -26vw);   
