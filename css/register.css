@@ -119,20 +119,20 @@ input {
     .row{
         .col-2{
             grid-column: span 12;
-            min-height: 75vh;
+            min-height: 550px;
         }
     }
     
     .logo-circle{
         top: unset;
-        height: 50vw;
-        width: 50vw;
+        height: 400px;
+        width: 400px;
         transform: translate(-50%, 0);
     }
     .circle{
         top: unset;
-        height: 25vw;
-        width: 25vw;
+        height: 200px;
+        width: 200px;
         transform: translate(5%, -85%);
     }
     .reg_tarolo{
@@ -146,5 +146,23 @@ input {
             }
         }
     }
+}
+
+@media screen and (max-width: 550px){
+    .row{
+       .col-2{
+            min-height: 500px;
+        }
+    }
+   .logo-circle{
+        height: 50vw;
+        width: 50vw;
+    }
+    .circle{
+        top: unset;
+        height: 25vw;
+        width: 25vw;
+    }
+    
 }
 
