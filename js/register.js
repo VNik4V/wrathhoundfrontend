@@ -1,5 +1,4 @@
 const forum = document.getElementById('forum');
-const game = document.getElementById('game');
 const home = document.getElementById('home');
 const embark = document.getElementById('embark');
 const toLogin = document.getElementsByClassName('toLogin')[0];

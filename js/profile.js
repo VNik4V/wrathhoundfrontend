@@ -1,6 +1,5 @@
 const forum = document.getElementById('forum');
 const embark = document.getElementById('embark');
-const game = document.getElementById('game');
 const home = document.getElementById('home');
 
 let gotuser;
@@ -712,12 +711,14 @@ document.addEventListener('DOMContentLoaded', () => {
         try {
             // FormData létrehozása a fájl és verzió küldéséhez
             const formData = new FormData();
-            formData.append('file', file);
             formData.append('version', version);
+            formData.append('game', file);
+            
 
             // Fetch kérés küldése a backend API-ra
             const response = await fetch('https://nodejs310.dszcbaross.edu.hu/api/game/upload', {
                 method: 'PUT',
+                credentials: 'include',
                 body: formData
             });
 
