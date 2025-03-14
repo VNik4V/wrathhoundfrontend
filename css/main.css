@@ -163,7 +163,7 @@ a {
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    transition: transform 0.7s ease-in-out;
+    transition: transform 0.5s ease-in-out;
 }
 
 #btn span:before {
@@ -273,7 +273,7 @@ a {
     opacity: 80%;
 }
 
-#game {
+#game, #game1 {
     color: white;
     background-color: var(--button-red);
     background-image: var(--button-red);
@@ -282,7 +282,7 @@ a {
     width: 150px;
     padding: 9px;
 }
-#game:hover{
+#game:hover, #game1:hover{
     opacity: 90%;
 }
 

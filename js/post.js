@@ -1,7 +1,6 @@
 const home = document.getElementById('home');
 const forum = document.getElementById('forum');
 const embark = document.getElementById('embark');
-const game = document.getElementById('game');
 const profile = document.getElementById('profile');
 const logout = document.getElementById('logout');
 
