@@ -47,13 +47,6 @@ body {
     --secondary-text: #453A43;
 }
 
-.page-wrapper {
-    height: 100%;
-    min-height: 100vh;
-    background-color: var(--main);
-    z-index: -10;
-}
-
 * {
     
     color: var(--secondary-text);
@@ -151,7 +144,9 @@ a {
     max-width: 1250px;
     margin: 0 auto;
     position: relative;
+
 }
+
 
 #light label {
     background-color: var(--main-text);
@@ -294,6 +289,7 @@ a {
 }
 
 .row{
+    
     display: grid;
     grid-template-columns: repeat(12, 1fr); /* 12 oszlopos rendszer */
     gap: 10px;
@@ -321,6 +317,7 @@ a {
         overflow: hidden;
         justify-content: center;
     }
+
     .col-3{
         grid-column: span 4;
         text-align: justify;
@@ -376,6 +373,7 @@ a {
         justify-content: center;
     }
 }
+
 
 .hamburger-menu {
     display: none;
@@ -496,6 +494,7 @@ a {
 
 }
 @media screen and (max-width: 800px) {
+
     .row{
         .col-3{
             grid-column: span 6;
@@ -519,6 +518,11 @@ a {
 
 }
 @media screen and (max-width: 550px) {
+    .page-wrapper{
+        height: 80.5%;
+        min-height: 40%;
+    }
+
     .row{
         .col-2{
             grid-column: span 12;
@@ -540,3 +544,17 @@ a {
         }
     }
 }
+
+
+
+  .col-2 img{
+    border-radius: 2%;
+    box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.7);
+  }
+
+  @media screen and (max-width: 390px) {
+    .page-wrapper{
+        height: 80
+    }
+
+  }
