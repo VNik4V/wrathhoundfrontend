@@ -586,11 +586,4 @@ a {
     box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.7);
   }
 
-  @media screen and (max-width: 375px) {
-    .page-wrapper{
-        height: 88%;
-        min-height: 78%;
-    }
-
-  }
 
