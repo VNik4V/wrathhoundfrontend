@@ -6,11 +6,13 @@
     --button-red: #C33835;
 }
 
-#lightMode:checked ~ * {
-    --main: #C2FFCA;
-    --main-text: #0F3B52;
-    --secondary: #F7F8CA;
-    --secondary-text: #453A43;
+body {
+    background-color: var(--main);
+    color: var(--secondary-text);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
 }
 
 .page-wrapper {
@@ -20,8 +22,33 @@
     z-index: -10;
 }
 
+/* Light mode */
+.light-theme {
+    --main: #C2FFCA;
+    --main-text: #0F3B52;
+    --secondary: #F7F8CA;
+    --secondary-text: #453A43;
+}
+
+
+
+:root {
+    --main: #0F3B52;
+    --main-text: #C2FFCA;
+    --secondary: #453A43;
+    --secondary-text: #F7F8CA;
+    --button-red: #C33835;
+}
+
+#lightMode:checked ~ * {
+    --main: #C2FFCA;
+    --main-text: #0F3B52;
+    --secondary: #F7F8CA;
+    --secondary-text: #453A43;
+}
+
 * {
-    background-color: var(--main);
+    
     color: var(--secondary-text);
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     padding: 0;
@@ -117,7 +144,9 @@ a {
     max-width: 1250px;
     margin: 0 auto;
     position: relative;
+
 }
+
 
 #light label {
     background-color: var(--main-text);
@@ -294,6 +323,7 @@ a {
 }
 
 .row{
+    
     display: grid;
     grid-template-columns: repeat(12, 1fr); /* 12 oszlopos rendszer */
     gap: 10px;
@@ -321,6 +351,7 @@ a {
         overflow: hidden;
         justify-content: center;
     }
+
     .col-3{
         grid-column: span 4;
         text-align: justify;
@@ -376,6 +407,7 @@ a {
         justify-content: center;
     }
 }
+
 
 .hamburger-menu {
     display: none;
@@ -496,6 +528,7 @@ a {
 
 }
 @media screen and (max-width: 800px) {
+
     .row{
         .col-3{
             grid-column: span 6;
@@ -519,6 +552,11 @@ a {
 
 }
 @media screen and (max-width: 550px) {
+    .page-wrapper{
+        height: 69%;
+        min-height: 40%;
+    }
+
     .row{
         .col-2{
             grid-column: span 12;
@@ -540,4 +578,19 @@ a {
         }
     }
 }
+
+
+
+  .col-2 img{
+    border-radius: 2%;
+    box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.7);
+  }
+
+  @media screen and (max-width: 375px) {
+    .page-wrapper{
+        height: 88%;
+        min-height: 78%;
+    }
+
+  }
 

@@ -783,6 +783,3 @@ async function akitv() {
         console.error("Hiba történt: ", error);
     }
 }
-
-
-
