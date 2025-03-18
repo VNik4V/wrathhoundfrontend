@@ -519,7 +519,7 @@ a {
 }
 @media screen and (max-width: 550px) {
     .page-wrapper{
-        height: 80.5%;
+        height: 69%;
         min-height: 40%;
     }
 
@@ -552,9 +552,10 @@ a {
     box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.7);
   }
 
-  @media screen and (max-width: 390px) {
+  @media screen and (max-width: 375px) {
     .page-wrapper{
-        height: 80
+        height: 88%;
+        min-height: 78%;
     }
 
   }
