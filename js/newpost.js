@@ -1,7 +1,6 @@
 const forum = document.getElementById('forum');
 const home = document.getElementById('home');
 const embark = document.getElementById('embark');
-const game = document.getElementById('game');
 const profile = document.getElementById('profile');
 const BTNpost = document.getElementById('BTNpost');
 
@@ -68,10 +67,18 @@ function draw(data) {
     img.src = './img/permanent-pics/logo.png';
     img.alt = 'profile';
     profile.appendChild(img);
+
+    const con = document.createElement('div');
+    con.classList.add('con');
+
+    const backDiv = document.createElement('div');
+    backDiv.classList.add('back');
+    con.appendChild(backDiv);
     
     const b = document.createElement('b');
     b.textContent = data.username;
-    profile.appendChild(b);
+    con.appendChild(b);
+    profile.appendChild(con);
     profile.addEventListener('click', () => getUserProfile(profile));
     user.appendChild(profile);
     
