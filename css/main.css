@@ -220,7 +220,7 @@ a {
 }
 
 .user{
-    margin-bottom: 20px;
+    margin-bottom: 50px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -519,8 +519,8 @@ a {
 }
 @media screen and (max-width: 550px) {
     .page-wrapper{
-        height: 69%;
-        min-height: 40%;
+        height: 95%;
+        min-height: 97%;
     }
 
     .row{
@@ -551,11 +551,23 @@ a {
     border-radius: 2%;
     box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.7);
   }
+  @media screen and (max-width: 500px) {
+    .page-wrapper{
+        height: 85%;
+        min-height: 78%;
+    }
+  }
+  @media screen and (max-width: 400px) {
+    .page-wrapper{
+        height: 85%;
+        min-height: 78%;
+    }
+  }
 
   @media screen and (max-width: 375px) {
     .page-wrapper{
-        height: 88%;
-        min-height: 78%;
+        height: 98%;
+        min-height: 98%;
     }
 
   }
