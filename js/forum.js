@@ -5,10 +5,6 @@ const search = document.getElementsByClassName('fa')[0];
 const plus = document.getElementsByClassName('plusz')[0];
 const searchInput = document.getElementById('searchText');
 
-import hello from'./enter.js'
-
-console.log(hello('agdhfsj'));
-
 plus.addEventListener('click', () => {
     window.location.href = '../newpost.html';
 });

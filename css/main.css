@@ -466,7 +466,7 @@ a {
     }
     .row{
         .col-4{
-            flex: 0 0 calc(100% / 3);
+            grid-column: span 4;
         }
         .col-6{
             grid-column: span 12;
