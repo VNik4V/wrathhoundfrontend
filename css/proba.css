@@ -244,39 +244,54 @@ h2{
     background-color: var(--button-red);
 }
 
+.card__content--container {
+    max-height: 94%;
+}
+
 .card__description{
     color: var(--secondary-text);
     font-size: 1.3rem;
+    overflow-y: auto;
+    padding-right: 0.5rem;
+}
+
+.card__description::-webkit-scrollbar {
+    width: 4px;
+}
+
+.card__description::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 4px;
 }
 
 @media (any-hover: hover) and (any-pointer: fine) {
     .card__content {
         transform: translateY(70%);
-        transition: transform 1s ease-out;
+        transition: transform 0.7s ease-out;
 
     }
 
     .card__title::after {
         opacity: 0;
         transform: scaleX(0);
-        transition: opacity 1s ease-in, transform 1s ease-out;
+        transition: opacity 0.7s ease-in, transform 0.7s ease-out;
 
         transform-origin: right;
     }
 
     .card__background {
-        transition: transform 1s ease-in-out;
+        transition: transform 0.7s ease-in-out;
     }
 
     .card__content--container> :not(.card__title) {
         opacity: 0;
-        transition: transform 1s ease-in-out, opacity 0.5s ease-in-out;
+        transition: transform 0.7s ease-in-out, opacity 0.3s ease-in-out;
     }
 
     .card:hover .card__content,
     .card:focus-within .card__content {
         transform: translateY(0);
-        transition: transform 1s ease-in;
+        transition: transform 0.7s ease-in;
     }
 
     .card:focus-within .card__content {
@@ -293,8 +308,8 @@ h2{
     .card:focus-within .card__content--container> :not(.card__title),
     .card:focus-within {
         opacity: 1;
-        transition: opacity 1s ease-in;
-        transition-delay: 0.3s;
+        transition: opacity 0.7s ease-in;
+        transition-delay: 0.2s;
     }
 
     .card:hover .card__title::after,
@@ -302,7 +317,7 @@ h2{
         opacity: 1;
         transform: scaleX(1);
         transform-origin: left;
-        transition: opacity 1s ease-in, transform 1s ease-in;
+        transition: opacity 0.7s ease-in, transform 0.7s ease-in;
     }
 }
 
@@ -328,8 +343,13 @@ h2{
 
 @media screen and (max-width: 1260px) {
 
-    .card__description{
-        font-size: 15px;
+    .card__title{
+        font-size: 1.2rem;
+    }
+
+    .card__description {
+        max-height: inherit;
+        font-size: 1rem;
     }
 
     .trailer {
@@ -365,9 +385,19 @@ h2{
     }
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 820px) {
     .row {
         .col-2 {
+            grid-column: span 12;
+        }
+        .col-3 {
+            grid-column: span 6;
+        }
+    }
+}
+@media screen and (max-width: 550px) {
+    .row {
+        .col-3{
             grid-column: span 12;
         }
     }
