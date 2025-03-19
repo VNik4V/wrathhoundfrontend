@@ -4,28 +4,40 @@ let game1 = document.getElementById('game1');
 game1.addEventListener('click', async function () {
     game1.disabled = true;
     game.disabled = true;
-    game1.textContent = "Letöltés..."; 
+    game1.textContent = "Letöltés...";
+    game.textContent = "Letöltés...";
+    game.classList.add("downloading"); 
+    game1.classList.add("downloading"); 
 
     try {
         await downloadGame();
     } finally {
         game1.disabled = false;
         game.disabled = false;
-        game1.textContent = "Játék"; 
+        game1.textContent = "Játék";
+        game.textContent = "Játék";
+        game.classList.remove("downloading"); 
+        game1.classList.remove("downloading");  
     }
 } );
 
 game.addEventListener('click', async function () {
     game.disabled = true;
     game1.disabled = true;
-    game.textContent = "Letöltés..."; 
+    game.textContent = "Letöltés...";
+    game1.textContent = "Letöltés...";
+    game.classList.add("downloading"); 
+    game1.classList.add("downloading"); 
 
     try {
         await downloadGame();
     } finally {
         game.disabled = false;
         game1.disabled = false; 
-        game.textContent = "Játék"; 
+        game.textContent = "Játék";
+        game1.textContent = "Játék";
+        game.classList.remove("downloading"); 
+        game1.classList.remove("downloading"); 
     }
 });
 
