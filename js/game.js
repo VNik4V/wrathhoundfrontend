@@ -3,12 +3,14 @@ const game = document.getElementById('game');
 game.addEventListener('click', async function () {
     game.disabled = true;  // Gomb letiltása
     game.textContent = "Letöltés..."; 
+    game.classList.add("downloading"); 
 
     try {
         await downloadGame();
     } finally {
         game.disabled = false;  // Gomb visszaengedése
         game.textContent = "Játék"; 
+        game.classList.remove("downloading"); 
     }
 });
 
