@@ -144,7 +144,7 @@ h2{
     background: linear-gradient(
             transparent 0%,
             var(--secondary) 30%,
-            var(--secondary) 100%);
+            var(--main) 100%);
 }
 
 .card__title {
