@@ -1,6 +1,5 @@
 const forum = document.getElementById('forum');
 const embark = document.getElementById('embark');
-const game = document.getElementById('game');
 const home = document.getElementById('home');
 
 let gotuser;
@@ -206,18 +205,26 @@ function draw(data) {
     const profile = document.createElement('div');
     profile.id = 'profile';
     profile.setAttribute('userid', data.uid);
-
+    
     const img = document.createElement('img');
     img.src = './img/permanent-pics/logo.png';
     img.alt = 'profile';
     profile.appendChild(img);
 
+    const con = document.createElement('div');
+    con.classList.add('con');
+
+    const backDiv = document.createElement('div');
+    backDiv.classList.add('back');
+    con.appendChild(backDiv);
+    
     const b = document.createElement('b');
     b.textContent = data.username;
-    profile.appendChild(b);
+    con.appendChild(b);
+    profile.appendChild(con);
     profile.addEventListener('click', () => getUserProfile(profile));
     user.appendChild(profile);
-
+    
     const logout = document.createElement('button');
     logout.type = 'button';
     logout.id = 'logout';
@@ -704,12 +711,14 @@ document.addEventListener('DOMContentLoaded', () => {
         try {
             // FormData létrehozása a fájl és verzió küldéséhez
             const formData = new FormData();
-            formData.append('file', file);
             formData.append('version', version);
+            formData.append('game', file);
+            
 
             // Fetch kérés küldése a backend API-ra
             const response = await fetch('https://nodejs310.dszcbaross.edu.hu/api/game/upload', {
                 method: 'PUT',
+                credentials: 'include',
                 body: formData
             });
 

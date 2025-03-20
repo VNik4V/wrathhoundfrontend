@@ -22,12 +22,12 @@
     background-size: 200% 100%;
     background-position: 100% 0;
     background-clip: text;
+    color: transparent;
+    transition: background-position 2s ease-in-out; 
 }
 
 .post-author:hover, .comment-author:hover{
-    color: transparent;
-    background-position: 0 0;   
-    transition: background-position 2.5s linear;   
+    background-position: 0 0;     
 }
 
 .post-title {

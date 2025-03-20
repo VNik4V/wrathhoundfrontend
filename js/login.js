@@ -1,6 +1,5 @@
 const btnLogin = document.getElementsByClassName('login')[0];
 const forum = document.getElementById('forum');
-const game = document.getElementById('game');
 const home = document.getElementById('home');
 const embark = document.getElementById('embark');
 const toReg = document.getElementById('toReg');

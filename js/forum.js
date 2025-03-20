@@ -1,15 +1,10 @@
 
 const home = document.getElementById('home');
 const embark = document.getElementById('embark');
-const game = document.getElementById('game');
 const profile = document.getElementById('profile');
 const search = document.getElementsByClassName('fa')[0];
 const plus = document.getElementsByClassName('plusz')[0];
 const searchInput = document.getElementById('searchText');
-
-import hello from'./enter.js'
-
-console.log(hello('agdhfsj'));
 
 plus.addEventListener('click', () => {
     window.location.href = '../newpost.html';
@@ -182,10 +177,18 @@ function draw(data) {
     img.src = './img/permanent-pics/logo.png';
     img.alt = 'profile';
     profile.appendChild(img);
+
+    const con = document.createElement('div');
+    con.classList.add('con');
+
+    const backDiv = document.createElement('div');
+    backDiv.classList.add('back');
+    con.appendChild(backDiv);
     
     const b = document.createElement('b');
     b.textContent = data.username;
-    profile.appendChild(b);
+    con.appendChild(b);
+    profile.appendChild(con);
     profile.addEventListener('click', () => getUserProfile(profile));
     user.appendChild(profile);
     
