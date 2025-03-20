@@ -633,6 +633,15 @@ b:hover {
 }
 
 @media screen and (max-width: 550px) {
+
+    .user{
+        #profile{
+            b{
+                font-size: 1.5rem;
+            }
+        }
+    }
+
     .page-wrapper {
         height: 69%;
         min-height: 40%;
