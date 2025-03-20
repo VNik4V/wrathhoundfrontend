@@ -462,7 +462,7 @@ function drawFelhasznalo(data) {
     const emailCol2 = document.createElement('div');
     emailCol2.classList.add('col-2');
     const emailSpan2 = document.createElement('span');
-    emailSpan2.classList.add('data')
+    emailSpan2.classList.add('data', 'email');
     emailSpan2.textContent = data.email;
     emailCol2.appendChild(emailSpan2);
     row.appendChild(emailCol2);
