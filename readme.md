@@ -30,5 +30,46 @@ A backend Node.js alapú, Express keretrendszerrel, és MySQL adatbázissal műk
 
 A frontend html, natív css és javascript alapú webes alkalmazás. Feladata kommunikációs hidat létesíteni a felhasználó és a backend között.
 
-### 
+### Design
+![Design](https://i.snipboard.io/Xd8oPB.jpg)
+>[Figma terv](https://www.figma.com/design/vwIB6tSVklWLWYwD9zewmk/Szipi-szupi-nagy-projekt?node-id=183-46&p=f&t=CVBCjGyRJfZdLlQy-0)
+
+### Fájlok
+- html
+    - index.html
+    - csatlakozz.html
+    - csj.html
+    - forum.html
+    - login.html
+    - newpost.html
+    - post.html
+    - proba.html
+    - profile.html
+    - reg.html
+ - css
+    - csatlakozz.css
+    - csj.css
+    - forum.css
+    - index.css
+    - login.css
+    - main.css
+    - newpost.css
+    - post.css
+    - proba.css
+    - profile.css
+    - register.css
+- js
+    - csatlakozz.js
+    - ebed.js
+    - forum.js
+    - game.js
+    - gameindex.js
+    - index.js
+    - login.js
+    - newpost.js
+    - post.js
+    - proba.js
+    - profile.js
+    - register.js
+    - theme.js
 
