@@ -37,34 +37,7 @@ A frontend html, natív css és javascript alapú webes alkalmazás. Feladata ko
 
 ### Fájlok
 - html
-    - csatlakozz.html
     - csj.html
-    - forum.html
-    - login.html
-    - newpost.html
-    - post.html
-    - profile.html
-    - reg.html
- - css
-    - csatlakozz.css
-    - csj.css
-    - forum.css
-    - login.css
-    - main.css
-    - newpost.css
-    - post.css
-    - profile.css
-    - register.css
-- js
-    - csatlakozz.js
-    - ebed.js
-    - forum.js
-    - game.js
-    - login.js
-    - newpost.js
-    - profile.js
-    - register.js
-    - theme.js
 
 ### Fájlok
 
@@ -95,7 +68,7 @@ A frontend html, natív css és javascript alapú webes alkalmazás. Feladata ko
     | Fájlnév         | Típus       | Leírás                           |
     |-----------------|-------------|--------------------------------------------------|
     | `main.css`      | ![CSS](https://img.shields.io/badge/-CSS-blue)         | Általános stíluslap                              |
-    | `post.css`  | ![CSS](https://img.shields.io/badge/-CSS-blue)  | A fórumhoz tartozó stíluslap |
+    | `post.css`  | ![CSS](https://img.shields.io/badge/-CSS-blue)  | Egy fórumposzthoz tartozó stíluslap |
     | `post.js` | ![JavaScript](https://img.shields.io/badge/-JavaScript-yellow) | A fórum működéséhez szükséges logika |
     | `theme.js`  | ![JavaScript](https://img.shields.io/badge/-JavaScript-yellow)  | Sötét és világos mód                |
     | `game.js`  | ![JavaScript](https://img.shields.io/badge/-JavaScript-yellow)  | Játékletöltés gomb működése               |
@@ -103,6 +76,15 @@ A frontend html, natív css és javascript alapú webes alkalmazás. Feladata ko
     ![post](https://i.snipboard.io/pQC1oA.jpg)
 
 4. ###  `csatlakozz.html`
+
+    | Fájlnév         | Típus       | Leírás                           |
+    |-----------------|-------------|--------------------------------------------------|
+    | `main.css`      | ![CSS](https://img.shields.io/badge/-CSS-blue)         | Általános stíluslap                              |
+    | `csatlakozz.css`  | ![CSS](https://img.shields.io/badge/-CSS-blue)  | A `csatlakozz.html` oldalhoz tartozó stíluslap, amely a bejelentkezés és regisztráció választófelületének megjelenését szabályozza. |
+    | `csatlakozz.js` | ![JavaScript](https://img.shields.io/badge/-JavaScript-yellow) | A fórum működéséhez szükséges logika |
+    | `theme.js`  | ![JavaScript](https://img.shields.io/badge/-JavaScript-yellow)  | Sötét és világos mód                |
+    | `game.js`  | ![JavaScript](https://img.shields.io/badge/-JavaScript-yellow)  | Játékletöltés gomb működése               |
+
     ![csatlakozz](https://i.snipboard.io/VWMx6J.jpg)
 
 5. ### `reg.html`
