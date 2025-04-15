@@ -278,7 +278,7 @@ a {
 }
 
 .con {
-    margin-left: 15px;
+    margin-left: 10px;
     position: relative;
     width: fit-content;
     height: fit-content;
@@ -637,7 +637,7 @@ b:hover {
     .user{
         #profile{
             b{
-                font-size: 1.5rem;
+                font-size: 1.3rem;
             }
         }
     }
