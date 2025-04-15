@@ -230,3 +230,4 @@ Minden oldalon elérhető világos mód ami első sorban css-sel van megoldva az
 - [CivitAi](https://civitai.com)
 - [FreeFrontend](https://freefrontend.com)
 - [Netlify](https://www.netlify.com)
+- [Figma](https://www.figma.com)
