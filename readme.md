@@ -173,6 +173,24 @@ A frontend html, natív css és javascript alapú webes alkalmazás. Feladata ko
     - játék feltöltés
     - fórum moderáció
 
+#### Tesztfelhasználók
+<details>
+  <summary>USER</summary>
+
+- email: teszt@teszt.hu
+- jelszó: 12345678
+
+</details>
+
+<details>
+  <summary>ADMIN</summary>
+
+- email: admin@teszt.hu
+- jelszó: 12345678
+
+</details>
+
+
 ### Reszponzivitás
 
 A reszponzivítás több eszközön és képernyőnézeten lett letesztelve.
@@ -186,3 +204,29 @@ A reszponzivítás több eszközön és képernyőnézeten lett letesztelve.
 Minden oldalon elérhető világos mód ami első sorban css-sel van megoldva az apró hibák javítására kellett javascriptet használni, hogy a világos mód működése ne legyen hiányos.
 
 ![világos mód](https://i.snipboard.io/URTdSA.jpg)
+
+### Továbbfejlesztési lehetőség
+
+![terv1](https://i.snipboard.io/605WkS.jpg)  
+- Értesítések barátok aktivitásairól
+- Direkt üzenetek
+- Fórumon felhasználó megjelölés
+- Több nyelvű elérhetőség
+- Hírek
+
+### Használt eszközök
+
+- [VS code](https://code.visualstudio.com)
+- [MDN Web Docs](https://developer.mozilla.org/en-US/)
+- [W3Schools](https://www.w3schools.com)
+- [StackOverflow](https://stackoverflow.com/questions)
+- [ChatGPT](https://chatgpt.com)
+- [Tabnine](https://www.tabnine.com)
+- [GitHub](https://github.com/)
+- [Google Drive](https://workspace.google.com/products/drive/)
+- [PixAi](https://pixai.art)
+- [Sketchbook](https://www.sketchbook.com)
+- [DragonBones](https://dragonbones.github.io/en/download.html)
+- [CivitAi](https://civitai.com)
+- [FreeFrontend](https://freefrontend.com)
+- [Netlify](https://www.netlify.com)
