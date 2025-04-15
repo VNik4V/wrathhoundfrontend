@@ -201,7 +201,7 @@ A reszponzivítás több eszközön és képernyőnézeten lett letesztelve.
 
 ### Világos mód
 
-Minden oldalon elérhető világos mód ami első sorban css-sel van megoldva az apró hibák javítására kellett javascriptet használni, hogy a világos mód működése ne legyen hiányos.
+Minden oldalon elérhető világos mód ami első sorban css-sel van megoldva az apró hibák javítására kellett javascriptet használni, hogy a világos mód működése ne legyen hiányos és újratöltéskor is azon a módon maradjon amit a felhasználó beállított.
 
 ![világos mód](https://i.snipboard.io/URTdSA.jpg)
 
