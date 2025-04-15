@@ -38,6 +38,8 @@ A frontend html, natív css és javascript alapú webes alkalmazás. Feladata ko
 ### Oldalak
 
 1. ####  `index.html`
+
+    Főoldal: tartalmazza a projekt célját és a fejlesztőket valamit ki mit csinált a projektben. 
     
     | Fájlnév         | Típus       | Leírás                          |
     |-----------------|-------------|--------------------------------------------------|
@@ -51,6 +53,9 @@ A frontend html, natív css és javascript alapú webes alkalmazás. Feladata ko
     ![index](https://i.snipboard.io/G7VupQ.jpg)
 
 2. ####  `forum.html`
+
+    Fórum: kártyákba szedi a fórumposztokat és időrendben kirajzolja, keresni lehet a posztok között valamint bejelentkezés után új posztot lehet írni.
+
     | Fájlnév         | Típus       | Leírás                           |
     |-----------------|-------------|--------------------------------------------------|
     | `main.css`      | ![CSS](https://img.shields.io/badge/-CSS-blue)         | Általános stíluslap                              |
@@ -62,6 +67,8 @@ A frontend html, natív css és javascript alapú webes alkalmazás. Feladata ko
     ![fórum](https://i.snipboard.io/bg7Xiz.jpg)
 
 3. #### `post.html`
+
+    Egy poszt: egy adott fórum bejegyzés részletei és kommentek alá, bejelentkezés után lehet válaszolni a bejegyzéshez.
 
     | Fájlnév         | Típus       | Leírás                           |
     |-----------------|-------------|--------------------------------------------------|
@@ -75,6 +82,8 @@ A frontend html, natív css és javascript alapú webes alkalmazás. Feladata ko
 
 4. ####  `csatlakozz.html`
 
+    Csatlakozz: navigációs felület, kiválaszthatja a felhasználó hogy bejelentkezni vagy regisztrálni szeretne.
+
     | Fájlnév         | Típus       | Leírás                           |
     |-----------------|-------------|--------------------------------------------------|
     | `main.css`      | ![CSS](https://img.shields.io/badge/-CSS-blue)         | Általános stíluslap                              |
@@ -86,6 +95,8 @@ A frontend html, natív css és javascript alapú webes alkalmazás. Feladata ko
     ![csatlakozz](https://i.snipboard.io/VWMx6J.jpg)
 
 5. #### `reg.html`
+
+    Regisztráció: regisztrációs űrlap
 
     | Fájlnév         | Típus       | Leírás                           |
     |-----------------|-------------|--------------------------------------------------|
@@ -99,6 +110,8 @@ A frontend html, natív css és javascript alapú webes alkalmazás. Feladata ko
 
 6. #### `login.html`
 
+    Bejelentkezés: bejelentkezés űrlap
+
     | Fájlnév         | Típus       | Leírás                           |
     |-----------------|-------------|--------------------------------------------------|
     | `main.css`      | ![CSS](https://img.shields.io/badge/-CSS-blue)         | Általános stíluslap                              |
@@ -110,6 +123,8 @@ A frontend html, natív css és javascript alapú webes alkalmazás. Feladata ko
     ![bejelentkezés](https://i.snipboard.io/Vwg7mf.jpg)
 
 7. #### `profile.html`
+
+    Profil: saját vagy más személy profiljának megtekintése, profiladatok (felhasználónév, email, státusz) barátok megtekintése valamint más felhasználóknál bejelentkezés után barátkérelem küldése vagy baráti kapcsolat törléseilletve saját profilnál barátkérelmek megtekintése és felhasználói adatok (felhasználónév, jelszó) változtatása.
 
     | Fájlnév         | Típus       | Leírás                           |
     |-----------------|-------------|--------------------------------------------------|
@@ -123,6 +138,8 @@ A frontend html, natív css és javascript alapú webes alkalmazás. Feladata ko
 
 8. #### `newpost.html`
 
+    Új poszt: új fórumbejegyzés írásá
+
     | Fájlnév         | Típus       | Leírás                           |
     |-----------------|-------------|--------------------------------------------------|
     | `main.css`      | ![CSS](https://img.shields.io/badge/-CSS-blue)         | Általános stíluslap                              |
@@ -134,6 +151,8 @@ A frontend html, natív css és javascript alapú webes alkalmazás. Feladata ko
     ![új poszt](https://i.snipboard.io/15JUWs.jpg)
 
 9. #### `csj.html`
+
+    Húsvéti tojás
 
     | Fájlnév         | Típus       | Leírás                           |
     |-----------------|-------------|--------------------------------------------------|
@@ -161,3 +180,9 @@ A reszponzivítás több eszközön és képernyőnézeten lett letesztelve.
 ![z fold](https://i.snipboard.io/jlcF43.jpg)
 ![ipad mini](https://i.snipboard.io/pweRWt.jpg)
 ![iphone se](https://i.snipboard.io/MC6NI5.jpg)
+
+### Világos mód
+
+Minden oldalon elérhető világos mód ami első sorban css-sel van megoldva az apró hibák javítására kellett javascriptet használni, hogy a világos mód működése ne legyen hiányos.
+
+![világos mód](https://i.snipboard.io/URTdSA.jpg)
