@@ -17,10 +17,6 @@
 - CSS3
 - Vanilla Javascript
 
-## Adatbázis
-![kép az adatbáziskapcsolatokról](https://i.snipboard.io/hSX4QR.jpg)
->[adatbázis diagram](https://drawsql.app/teams/dszc-baross-2/diagrams/wrathhound)
-
 ## Backend
 
 A backend Node.js alapú, Express keretrendszerrel, és MySQL adatbázissal működik. Feladata kommunikációs hidat létesíteni a frontend (játék + weboldal) és az adatbázis között.
@@ -204,6 +200,10 @@ A reszponzivítás több eszközön és képernyőnézeten lett letesztelve.
 Minden oldalon elérhető világos mód ami első sorban css-sel van megoldva az apró hibák javítására kellett javascriptet használni, hogy a világos mód működése ne legyen hiányos és újratöltéskor is azon a módon maradjon amit a felhasználó beállított.
 
 ![világos mód](https://i.snipboard.io/URTdSA.jpg)
+
+### Teszt
+
+Manuálisan lett tesztelve, valamint ki lett adva tesztelésre.
 
 ### Továbbfejlesztési lehetőség
 
